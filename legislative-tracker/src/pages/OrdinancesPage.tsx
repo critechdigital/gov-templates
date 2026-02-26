@@ -101,32 +101,32 @@ const OrdinancesPage = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Active':
-        return 'bg-green-100 text-green-800';
+        return 'bg-[#E95420]/10 text-[#E95420]';
       case 'Amended':
-        return 'bg-yellow-100 text-yellow-800';
+        return 'bg-[#77216F]/10 text-[#77216F]';
       case 'Repealed':
-        return 'bg-red-100 text-red-800';
+        return 'bg-[#AEA79F]/10 text-[#AEA79F]';
       case 'Under Review':
-        return 'bg-blue-100 text-blue-800';
+        return 'bg-[#2C001E]/10 text-[#2C001E]';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-[#AEA79F]/10 text-[#AEA79F]';
     }
   };
 
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
-      'Tax': 'bg-purple-100 text-purple-800',
-      'Traffic': 'bg-red-100 text-red-800',
-      'Health': 'bg-green-100 text-green-800',
-      'Environment': 'bg-emerald-100 text-emerald-800',
-      'Peace & Order': 'bg-blue-100 text-blue-800',
-      'Zoning': 'bg-orange-100 text-orange-800',
-      'Education': 'bg-indigo-100 text-indigo-800',
-      'Infrastructure': 'bg-gray-100 text-gray-800',
-      'Business': 'bg-yellow-100 text-yellow-800',
-      'Social Services': 'bg-pink-100 text-pink-800',
+      'Tax': 'bg-[#77216F]/10 text-[#77216F]',
+      'Traffic': 'bg-[#E95420]/10 text-[#E95420]',
+      'Health': 'bg-[#E95420]/10 text-[#E95420]',
+      'Environment': 'bg-[#77216F]/10 text-[#77216F]',
+      'Peace & Order': 'bg-[#2C001E]/10 text-[#2C001E]',
+      'Zoning': 'bg-[#E95420]/10 text-[#E95420]',
+      'Education': 'bg-[#77216F]/10 text-[#77216F]',
+      'Infrastructure': 'bg-[#AEA79F]/10 text-[#AEA79F]',
+      'Business': 'bg-[#E95420]/10 text-[#E95420]',
+      'Social Services': 'bg-[#77216F]/10 text-[#77216F]',
     };
-    return colors[category] || 'bg-gray-100 text-gray-800';
+    return colors[category] || 'bg-[#AEA79F]/10 text-[#AEA79F]';
   };
 
   return (
