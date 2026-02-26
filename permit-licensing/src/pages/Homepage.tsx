@@ -90,6 +90,19 @@ const Homepage = () => {
         </div>
       </section>
 
+      {/* Full-bleed Image Banner */}
+      <section className="relative h-[60vh] overflow-hidden">
+        <img 
+          src={`${import.meta.env.BASE_URL}images/permit-construction.jpg`} 
+          alt="Infrastructure development" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+        <div className="absolute bottom-12 left-0 right-0 text-center">
+          <p className="text-2xl font-light text-[#1D1D1F]">Building Meycauayan's future, one permit at a time.</p>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="min-h-screen flex items-center py-32 bg-[#F5F5F7]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">

@@ -20,8 +20,13 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#F7F7F7]">
       {/* Hero Section */}
-      <div className="bg-[#2C001E] text-white ubuntu-dots">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="relative bg-[#2C001E] text-white ubuntu-dots overflow-hidden">
+        <img 
+          src={`${import.meta.env.BASE_URL}images/legislative-chamber.jpg`} 
+          alt="Legislative session" 
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Legislative Tracking System

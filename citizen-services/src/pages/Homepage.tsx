@@ -55,8 +55,12 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="w-20 h-20 bg-[#FF9900] rounded flex items-center justify-center">
-              <span className="text-[#232F3E] font-bold text-2xl">M</span>
+            <div className="rounded-lg overflow-hidden shadow-md">
+              <img 
+                src={`${import.meta.env.BASE_URL}images/hero-community.jpg`} 
+                alt="Community engagement" 
+                className="w-full h-48 object-cover"
+              />
             </div>
           </div>
         </div>

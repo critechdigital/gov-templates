@@ -73,6 +73,11 @@ const Homepage = () => {
     <div className="max-w-none">
       {/* Microsoft Hero Banner */}
       <div className="ms-hero-banner mb-8">
+        <img 
+          src={`${import.meta.env.BASE_URL}images/hero-government-meeting.jpg`}
+          alt=""
+          className="hero-bg-image"
+        />
         <div className="flex items-center justify-between relative z-10">
           <div className="max-w-4xl">
             <h1 className="ms-text-hero mb-4">

@@ -16,8 +16,13 @@ export default function Homepage() {
   return (
     <div className="space-y-8">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#0071DC] to-[#005bb5] text-white rounded-lg p-8 corporate-card">
-        <div className="max-w-4xl">
+      <section className="relative bg-gradient-to-r from-[#0071DC] to-[#005bb5] text-white rounded-lg p-8 corporate-card overflow-hidden">
+        <img 
+          src={`${import.meta.env.BASE_URL}images/procurement-warehouse.jpg`} 
+          alt="Supply chain management" 
+          className="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-luminosity"
+        />
+        <div className="relative max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-2 h-8 bg-[#FFC220] rounded-full"></div>
             <h1 className="text-3xl font-semibold text-white">
