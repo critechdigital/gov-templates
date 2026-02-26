@@ -59,30 +59,29 @@ const Homepage = () => {
   ];
 
   return (
-    <div className="bg-[#FBFBFD]">
+    <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
-          <div className="text-center">
-            <h1 className="text-5xl lg:text-7xl font-extralight text-[#1D1D1F] leading-tight mb-6">
+      <section className="relative min-h-screen flex items-center justify-center bg-white">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
+          <div className="fade-in-up">
+            <h1 className="text-7xl lg:text-8xl font-thin text-[#1D1D1F] leading-[0.9] mb-12">
               Digital Permit
               <br />
-              <span className="font-light">Services</span>
+              <span className="font-extralight">Services</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-              Streamlined government services for the City of Meycauayan. 
-              Apply, track, and manage your permits with ease.
+            <p className="text-2xl lg:text-3xl text-gray-500 max-w-4xl mx-auto leading-relaxed mb-16 font-light">
+              Streamlined government services for the City of Meycauayan
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link
                 to="/business-permit"
-                className="inline-flex items-center px-8 py-4 bg-[#0066CC] text-white font-medium rounded-full hover:bg-[#004499] transition-all duration-200 shadow-sm"
+                className="inline-flex items-center px-12 py-5 bg-[#0071E3] text-white font-normal rounded-full hover:bg-[#0077ED] transition-all duration-300 text-lg"
               >
                 Get Started
               </Link>
               <Link
                 to="/tracker"
-                className="inline-flex items-center px-8 py-4 bg-transparent text-[#0066CC] font-medium rounded-full border border-[#0066CC] hover:bg-[#0066CC] hover:text-white transition-all duration-200"
+                className="inline-flex items-center px-12 py-5 text-[#0071E3] font-normal hover:text-[#0077ED] transition-all duration-300 text-lg"
               >
                 Track Application
               </Link>
@@ -92,33 +91,31 @@ const Homepage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-[#F5F5F7]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-6">
+      <section className="min-h-screen flex items-center py-32 bg-[#F5F5F7]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="text-center mb-24">
+            <h2 className="text-6xl lg:text-7xl font-thin text-[#1D1D1F] mb-8 leading-tight">
               Our Services
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Comprehensive permit and licensing services designed for efficiency and transparency.
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
+              Comprehensive permit and licensing services
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
                 <Link
                   key={index}
                   to={service.link}
-                  className="group bg-white rounded-3xl p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  className={`group bg-white p-12 transition-all duration-300 hover:-translate-y-2 fade-in-scale animate-delay-${index * 100}`}
                 >
-                  <div className="mb-6">
-                    <div className="w-16 h-16 bg-[#F5F5F7] rounded-2xl flex items-center justify-center group-hover:bg-[#0066CC] transition-colors duration-300">
-                      <IconComponent className="w-8 h-8 text-gray-600 group-hover:text-white transition-colors duration-300" />
-                    </div>
+                  <div className="mb-8">
+                    <IconComponent className="w-8 h-8 text-gray-400 group-hover:text-[#0071E3] transition-colors duration-300" />
                   </div>
-                  <h3 className="text-xl font-light text-[#1D1D1F] mb-4">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                  <h3 className="text-2xl font-light text-[#1D1D1F] mb-6">{service.title}</h3>
+                  <p className="text-gray-500 leading-relaxed text-lg">{service.description}</p>
                 </Link>
               );
             })}
@@ -127,27 +124,27 @@ const Homepage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-6">
+      <section className="min-h-screen flex items-center py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="text-center mb-24">
+            <h2 className="text-6xl lg:text-7xl font-thin text-[#1D1D1F] mb-8 leading-tight">
               Simple Process
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Four easy steps to get your permit processed quickly and efficiently.
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
+              Four steps to get your permit
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
             {steps.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="mb-6">
-                  <span className="inline-flex items-center justify-center w-16 h-16 bg-[#F5F5F7] text-[#0066CC] text-xl font-light rounded-2xl">
+                <div className="mb-8">
+                  <span className="inline-flex items-center justify-center w-20 h-20 text-gray-400 text-2xl font-thin">
                     {step.number}
                   </span>
                 </div>
-                <h3 className="text-lg font-light text-[#1D1D1F] mb-4">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">{step.description}</p>
+                <h3 className="text-2xl font-light text-[#1D1D1F] mb-6">{step.title}</h3>
+                <p className="text-gray-500 leading-relaxed text-lg">{step.description}</p>
               </div>
             ))}
           </div>
@@ -155,24 +152,24 @@ const Homepage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-[#F5F5F7]">
+      <section className="min-h-screen flex items-center py-32 bg-[#F5F5F7]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-6">
+          <h2 className="text-6xl lg:text-7xl font-thin text-[#1D1D1F] mb-12 leading-tight">
             Ready to get started?
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed mb-10">
-            Choose your permit type below or contact us for assistance with your application.
+          <p className="text-xl text-gray-500 leading-relaxed mb-16 font-light">
+            Choose your permit type or contact us for assistance
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link
               to="/requirements"
-              className="inline-flex items-center px-8 py-4 bg-[#0066CC] text-white font-medium rounded-full hover:bg-[#004499] transition-all duration-200 shadow-sm"
+              className="inline-flex items-center px-12 py-5 bg-[#0071E3] text-white font-normal rounded-full hover:bg-[#0077ED] transition-all duration-300 text-lg"
             >
               View Requirements
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-transparent text-[#0066CC] font-medium rounded-full border border-[#0066CC] hover:bg-[#0066CC] hover:text-white transition-all duration-200"
+              className="inline-flex items-center px-12 py-5 text-[#0071E3] font-normal hover:text-[#0077ED] transition-all duration-300 text-lg"
             >
               Contact Us
             </Link>

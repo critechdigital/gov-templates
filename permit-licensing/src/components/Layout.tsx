@@ -21,9 +21,9 @@ const Layout = ({ children }: LayoutProps) => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen bg-[#FBFBFD]">
+    <div className="min-h-screen bg-white">
       {/* Apple-style Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-[#E5E5E7]/50">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-[#E5E5E7]/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Centered Logo Section */}
@@ -45,10 +45,10 @@ const Layout = ({ children }: LayoutProps) => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-4 py-2 text-sm font-normal rounded-full transition-all duration-200 ${
+                  className={`px-5 py-2 text-sm font-normal rounded-full transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'bg-[#0066CC] text-white shadow-sm'
-                      : 'text-[#1D1D1F] hover:bg-[#F5F5F7] hover:text-[#0066CC]'
+                      ? 'bg-[#0071E3] text-white'
+                      : 'text-[#1D1D1F] hover:text-[#0071E3]'
                   }`}
                 >
                   {item.name}
@@ -68,17 +68,17 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
         
         {/* Mobile Navigation */}
-        <div className="lg:hidden border-t border-[#E5E5E7]/50 bg-white/95 backdrop-blur-xl">
+        <div className="lg:hidden border-t border-[#E5E5E7]/20 bg-white/90 backdrop-blur-xl">
           <div className="px-6 py-4">
             <div className="grid grid-cols-2 gap-2">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-4 py-3 text-sm font-normal rounded-2xl transition-all duration-200 text-center ${
+                  className={`px-4 py-3 text-sm font-normal rounded-full transition-all duration-200 text-center ${
                     isActive(item.href)
-                      ? 'bg-[#0066CC] text-white'
-                      : 'text-[#1D1D1F] hover:bg-[#F5F5F7]'
+                      ? 'bg-[#0071E3] text-white'
+                      : 'text-[#1D1D1F] hover:text-[#0071E3]'
                   }`}
                 >
                   {item.name}
@@ -94,43 +94,25 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
 
-      {/* Apple-style Footer */}
-      <footer className="bg-[#F5F5F7] border-t border-[#E5E5E7]/50 py-16 mt-24">
+      {/* Minimal Apple-style Footer */}
+      <footer className="py-12 mt-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-              <h3 className="text-lg font-light text-[#1D1D1F] mb-6">Contact Information</h3>
-              <div className="space-y-3 text-gray-600">
-                <p>City Hall, Meycauayan, Bulacan</p>
-                <p>Phone: (044) 123-4567</p>
-                <p>Email: permits@meycauayan.gov.ph</p>
-              </div>
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex flex-wrap gap-6 text-sm text-gray-500">
+              <Link to="/requirements" className="hover:text-[#0071E3] transition-colors">
+                Requirements
+              </Link>
+              <Link to="/fee-schedule" className="hover:text-[#0071E3] transition-colors">
+                Fees
+              </Link>
+              <Link to="/tracker" className="hover:text-[#0071E3] transition-colors">
+                Track
+              </Link>
+              <Link to="/contact" className="hover:text-[#0071E3] transition-colors">
+                Contact
+              </Link>
             </div>
-            <div>
-              <h3 className="text-lg font-light text-[#1D1D1F] mb-6">Office Hours</h3>
-              <div className="space-y-3 text-gray-600">
-                <p>Monday - Friday: 7:00 AM - 5:00 PM</p>
-                <p>Saturday: 8:00 AM - 12:00 PM</p>
-                <p>Sunday: Closed</p>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-light text-[#1D1D1F] mb-6">Quick Links</h3>
-              <div className="space-y-3">
-                <Link to="/requirements" className="block text-[#0066CC] hover:text-[#004499] transition-colors">
-                  Document Requirements
-                </Link>
-                <Link to="/fee-schedule" className="block text-[#0066CC] hover:text-[#004499] transition-colors">
-                  Fee Schedule
-                </Link>
-                <Link to="/tracker" className="block text-[#0066CC] hover:text-[#004499] transition-colors">
-                  Track Application
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-[#E5E5E7]/50 mt-12 pt-8 text-center">
-            <p className="text-gray-500 text-sm">&copy; 2026 City of Meycauayan, Bulacan. All rights reserved.</p>
+            <p className="text-gray-500 text-sm">&copy; 2026 City of Meycauayan</p>
           </div>
         </div>
       </footer>

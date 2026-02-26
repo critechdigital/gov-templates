@@ -4,9 +4,9 @@
 /* Apple Human Interface Design Base Styles */
 :root {
   --apple-near-black: #1D1D1F;
-  --apple-light-bg: #FBFBFD;
+  --apple-light-bg: #FFFFFF;
   --apple-light-bg-alt: #F5F5F7;
-  --apple-blue-link: #0066CC;
+  --apple-blue: #0071E3;
   --apple-border-subtle: #E5E5E7;
 }
 
@@ -19,11 +19,12 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--apple-near-black);
   line-height: 1.7;
+  background: white;
 }
 
 /* Apple-style focus states */
 *:focus-visible {
-  outline: 2px solid var(--apple-blue-link);
+  outline: 2px solid var(--apple-blue);
   outline-offset: 2px;
   border-radius: 8px;
 }
@@ -31,4 +32,131 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Fade-in animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-scale {
+  animation: fadeInScale 0.6s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* Ultra-clean Apple form inputs */
+.apple-input {
+  background: white;
+  border: none;
+  border-radius: 16px;
+  padding: 20px 24px;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--apple-near-black);
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px transparent;
+}
+
+.apple-input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--apple-blue);
+  background: white;
+}
+
+.apple-input::placeholder {
+  color: #86868B;
+  font-weight: 400;
+}
+
+/* Apple textarea */
+.apple-textarea {
+  background: white;
+  border: none;
+  border-radius: 16px;
+  padding: 20px 24px;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--apple-near-black);
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px transparent;
+  font-family: inherit;
+}
+
+.apple-textarea:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--apple-blue);
+  background: white;
+}
+
+.apple-textarea::placeholder {
+  color: #86868B;
+  font-weight: 400;
+}
+
+/* Apple select */
+.apple-select {
+  background: white;
+  border: none;
+  border-radius: 16px;
+  padding: 20px 24px;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--apple-near-black);
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px transparent;
+  cursor: pointer;
+}
+
+.apple-select:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--apple-blue);
+  background: white;
+}
+
+/* Hide default select arrow and add custom one */
+.apple-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2386868B' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 24px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 56px;
 }

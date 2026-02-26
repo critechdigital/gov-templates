@@ -101,22 +101,22 @@ const BusinessPermit = () => {
   };
 
   const renderStepIndicator = () => (
-    <div className="flex items-center justify-between mb-12">
+    <div className="flex items-center justify-between mb-16">
       {[1, 2, 3, 4, 5].map((step) => (
         <div key={step} className="flex items-center">
           <div
-            className={`w-12 h-12 rounded-2xl flex items-center justify-center font-light text-sm transition-all duration-200 ${
+            className={`w-12 h-12 rounded-full flex items-center justify-center font-light text-sm transition-all duration-200 ${
               step <= currentStep
-                ? 'bg-[#0066CC] text-white'
-                : 'bg-[#F5F5F7] text-gray-500'
+                ? 'bg-[#0071E3] text-white'
+                : 'text-gray-400'
             }`}
           >
             {step}
           </div>
           {step < 5 && (
-            <div className="hidden sm:block w-20 h-0.5 bg-[#E5E5E7] mx-3">
+            <div className="hidden sm:block w-20 h-px bg-[#E5E5E7] mx-3">
               <div
-                className={`h-full bg-[#0066CC] transition-all duration-300 ${
+                className={`h-full bg-[#0071E3] transition-all duration-300 ${
                   step < currentStep ? 'w-full' : 'w-0'
                 }`}
               />
@@ -136,102 +136,107 @@ const BusinessPermit = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FBFBFD] py-12">
+    <div className="min-h-screen bg-white py-24">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <div className="bg-white rounded-3xl shadow-sm border border-[#E5E5E7]/50 p-8 lg:p-12">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-4">
+        <div className="bg-[#F5F5F7] p-8 lg:p-16">
+          <div className="text-center mb-16">
+            <h1 className="text-6xl lg:text-7xl font-thin text-[#1D1D1F] mb-8 leading-tight">
               Business Permit
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Complete all steps to submit your business permit application
+            <p className="text-xl text-gray-500 leading-relaxed font-light">
+              Complete all steps to submit your application
             </p>
           </div>
 
           {renderStepIndicator()}
 
-          <div className="mb-12">
-            <h2 className="text-2xl font-light text-[#1D1D1F] mb-8">
+          <div className="mb-16">
+            <h2 className="text-4xl font-light text-[#1D1D1F] mb-12">
               {stepTitles[currentStep - 1]}
             </h2>
 
             {/* Step 1: Applicant Information */}
             {currentStep === 1 && (
-              <div className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div>
-                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
-                      First Name *
+                    <label className="block text-lg font-light text-[#1D1D1F] mb-4">
+                      First Name
                     </label>
                     <input
                       type="text"
                       value={data.firstName}
                       onChange={(e) => updateData({ firstName: e.target.value })}
-                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
+                      placeholder="Enter first name"
+                      className="apple-input"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
+                    <label className="block text-lg font-light text-[#1D1D1F] mb-4">
                       Middle Name
                     </label>
                     <input
                       type="text"
                       value={data.middleName}
                       onChange={(e) => updateData({ middleName: e.target.value })}
-                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
+                      placeholder="Enter middle name"
+                      className="apple-input"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
-                      Last Name *
+                    <label className="block text-lg font-light text-[#1D1D1F] mb-4">
+                      Last Name
                     </label>
                     <input
                       type="text"
                       value={data.lastName}
                       onChange={(e) => updateData({ lastName: e.target.value })}
-                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
+                      placeholder="Enter last name"
+                      className="apple-input"
                       required
                     />
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
-                      Email Address *
+                    <label className="block text-lg font-light text-[#1D1D1F] mb-4">
+                      Email Address
                     </label>
                     <input
                       type="email"
                       value={data.email}
                       onChange={(e) => updateData({ email: e.target.value })}
-                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
+                      placeholder="your@email.com"
+                      className="apple-input"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
-                      Phone Number *
+                    <label className="block text-lg font-light text-[#1D1D1F] mb-4">
+                      Phone Number
                     </label>
                     <input
                       type="tel"
                       value={data.phone}
                       onChange={(e) => updateData({ phone: e.target.value })}
-                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
+                      placeholder="09XX XXX XXXX"
+                      className="apple-input"
                       required
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
-                    Complete Address *
+                  <label className="block text-lg font-light text-[#1D1D1F] mb-4">
+                    Complete Address
                   </label>
                   <textarea
                     value={data.address}
                     onChange={(e) => updateData({ address: e.target.value })}
-                    rows={4}
-                    className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all resize-none"
+                    placeholder="Enter your complete address"
+                    className="apple-textarea"
                     required
                   />
                 </div>
@@ -281,13 +286,13 @@ const BusinessPermit = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
-                    Business Type *
+                  <label className="block text-lg font-light text-[#1D1D1F] mb-4">
+                    Business Type
                   </label>
                   <select
                     value={data.businessType}
                     onChange={(e) => updateData({ businessType: e.target.value })}
-                    className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all appearance-none bg-white"
+                    className="apple-select"
                     required
                   >
                     <option value="">Select business type</option>
@@ -486,14 +491,14 @@ const BusinessPermit = () => {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center pt-8">
             <button
               onClick={handlePrev}
               disabled={currentStep === 1}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all ${
+              className={`flex items-center space-x-2 px-8 py-4 rounded-full font-normal text-lg transition-all ${
                 currentStep === 1
                   ? 'text-gray-400 cursor-not-allowed'
-                  : 'text-[#1D1D1F] hover:bg-[#F5F5F7]'
+                  : 'text-[#0071E3] hover:text-[#0077ED]'
               }`}
             >
               <ChevronLeft size={20} />
@@ -503,7 +508,7 @@ const BusinessPermit = () => {
             {currentStep < 5 ? (
               <button
                 onClick={handleNext}
-                className="flex items-center space-x-2 bg-[#0066CC] text-white px-8 py-3 rounded-full font-medium hover:bg-[#004499] transition-all shadow-sm"
+                className="flex items-center space-x-2 bg-[#0071E3] text-white px-12 py-4 rounded-full font-normal text-lg hover:bg-[#0077ED] transition-all"
               >
                 <span>Next</span>
                 <ChevronRight size={20} />
@@ -511,7 +516,7 @@ const BusinessPermit = () => {
             ) : (
               <button
                 onClick={handleSubmit}
-                className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-full font-medium hover:from-green-600 hover:to-emerald-600 transition-all shadow-sm"
+                className="bg-[#0071E3] text-white px-12 py-4 rounded-full font-normal text-lg hover:bg-[#0077ED] transition-all"
               >
                 Submit Application
               </button>
