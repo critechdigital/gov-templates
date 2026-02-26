@@ -10,7 +10,7 @@ import AboutLGU from './pages/AboutLGU';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/citizen-services">
       <Layout>
         <Routes>
           <Route path="/" element={<Homepage />} />

@@ -10,7 +10,7 @@ import SupplierRegistration from './pages/SupplierRegistration';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/procurement-portal">
       <Layout>
         <Routes>
           <Route path="/" element={<Homepage />} />

@@ -12,7 +12,7 @@ import CouncilMembersPage from './pages/CouncilMembersPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/legislative-tracker">
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">

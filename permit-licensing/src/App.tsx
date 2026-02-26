@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/permit-licensing">
       <Layout>
         <Routes>
           <Route path="/" element={<Homepage />} />

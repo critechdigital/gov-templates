@@ -10,7 +10,7 @@ import Reports from './pages/Reports'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/transparency-portal">
       <Layout>
         <Routes>
           <Route path="/" element={<Homepage />} />
