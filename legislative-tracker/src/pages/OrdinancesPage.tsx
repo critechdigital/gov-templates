@@ -130,24 +130,24 @@ const OrdinancesPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#F7F7F7]">
       {/* Page Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white border-b border-[#AEA79F]/20 rounded-b-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-8">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 flex items-center">
-                  <Scale className="h-8 w-8 mr-3 text-[#0D1B2A]" />
+                <h1 className="text-3xl font-bold text-[#2C001E] flex items-center">
+                  <Scale className="h-8 w-8 mr-3 text-[#E95420]" />
                   City Ordinances
                 </h1>
-                <p className="mt-2 text-gray-600">
+                <p className="mt-2 text-[#AEA79F]">
                   Browse and search the complete database of city ordinances
                 </p>
               </div>
               <div className="text-right">
-                <p className="text-sm text-gray-500">Total Ordinances</p>
-                <p className="text-2xl font-bold text-[#0D1B2A]">{filteredOrdinances.length}</p>
+                <p className="text-sm text-[#AEA79F]">Total Ordinances</p>
+                <p className="text-2xl font-bold text-[#E95420]">{filteredOrdinances.length}</p>
               </div>
             </div>
           </div>
@@ -156,16 +156,16 @@ const OrdinancesPage = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Search and Filters */}
-        <div className="bg-white rounded-lg shadow-md mb-8">
+        <div className="bg-white rounded-xl shadow-lg border border-[#AEA79F]/20 mb-8">
           <div className="p-6">
             {/* Search Bar */}
             <div className="mb-6">
               <div className="relative">
-                <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                <Search className="absolute left-3 top-3 h-5 w-5 text-[#AEA79F]" />
                 <input
                   type="text"
                   placeholder="Search ordinances by title, number, or content..."
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md focus:ring-[#0D1B2A] focus:border-[#0D1B2A]"
+                  className="w-full pl-10 pr-4 py-3 border border-[#AEA79F]/30 rounded-lg focus:ring-[#E95420] focus:border-[#E95420] transition-colors"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
