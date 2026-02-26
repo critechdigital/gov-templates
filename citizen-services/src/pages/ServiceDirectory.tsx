@@ -25,19 +25,19 @@ const ServiceDirectory = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Service Directory</h1>
-        <p className="text-gray-600 text-lg">
+        <h1 className="text-2xl font-bold text-[#16191F] mb-3 aws-dense">Service Directory</h1>
+        <p className="text-[#16191F] text-base aws-dense">
           Complete list of government services offered by the Municipality of Marilao, Bulacan. 
           Click on any service to view detailed information including requirements, fees, and step-by-step process.
         </p>
       </div>
 
       {/* Search and Filter */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <div className="flex flex-col lg:flex-row gap-4">
+      <div className="aws-card">
+        <div className="flex flex-col lg:flex-row gap-3">
           <div className="flex-1">
             <div className="relative">
               <input
@@ -45,16 +45,16 @@ const ServiceDirectory = () => {
                 placeholder="Search services..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0038A8] focus:border-transparent"
+                className="w-full px-3 py-2 pl-10 border border-[#D5D9D9] rounded text-sm focus:outline-none focus:ring-1 focus:ring-[#FF9900] focus:border-[#FF9900]"
               />
-              <Search className="absolute left-4 top-3.5 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
             </div>
           </div>
-          <div className="lg:w-64">
+          <div className="lg:w-56">
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0038A8] focus:border-transparent"
+              className="w-full px-3 py-2 border border-[#D5D9D9] rounded text-sm focus:outline-none focus:ring-1 focus:ring-[#FF9900] focus:border-[#FF9900]"
             >
               {categories.map(category => (
                 <option key={category} value={category}>{category}</option>
@@ -62,7 +62,7 @@ const ServiceDirectory = () => {
             </select>
           </div>
         </div>
-        <div className="mt-4 text-sm text-gray-600">
+        <div className="mt-3 text-xs text-[#16191F] aws-dense">
           Showing {filteredServices.length} of {services.length} services
         </div>
       </div>

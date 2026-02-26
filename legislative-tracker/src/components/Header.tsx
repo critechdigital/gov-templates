@@ -18,20 +18,20 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-[#0D1B2A] text-white shadow-lg">
+    <header className="bg-[#2C001E] text-white shadow-lg rounded-b-xl">
       {/* Top Bar with City Info */}
-      <div className="border-b border-gray-600">
+      <div className="border-b border-[#77216F]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-12 text-sm">
             <div className="flex items-center space-x-4">
-              <span className="text-[#FFD700]">Official Website</span>
-              <span>|</span>
+              <span className="text-[#E95420] font-medium">Official Website</span>
+              <span className="text-[#AEA79F]">|</span>
               <span>{cityInfo.phone}</span>
-              <span>|</span>
+              <span className="text-[#AEA79F]">|</span>
               <span>{cityInfo.email}</span>
             </div>
             <div className="hidden sm:block">
-              <span className="text-[#FFD700]">Current Term: {cityInfo.currentTerm}</span>
+              <span className="text-[#E95420] font-medium">Current Term: {cityInfo.currentTerm}</span>
             </div>
           </div>
         </div>
@@ -43,15 +43,15 @@ const Header = () => {
           {/* Logo and Title */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <div className="w-12 h-12 bg-[#FFD700] rounded-full flex items-center justify-center">
-                <Building className="h-8 w-8 text-[#0D1B2A]" />
+              <div className="w-12 h-12 bg-[#E95420] rounded-xl flex items-center justify-center shadow-md">
+                <Building className="h-8 w-8 text-white" />
               </div>
             </div>
             <div className="ml-4">
-              <Link to="/" className="text-xl font-bold text-white hover:text-[#FFD700] transition-colors">
+              <Link to="/" className="text-xl font-bold text-white hover:text-[#E95420] transition-colors">
                 {cityInfo.name}
               </Link>
-              <div className="text-sm text-gray-300">Legislative Tracking System</div>
+              <div className="text-sm text-[#AEA79F]">Legislative Tracking System</div>
             </div>
           </div>
 
@@ -65,10 +65,10 @@ const Header = () => {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium flex items-center space-x-1 transition-colors ${
+                    className={`px-3 py-2 rounded-lg text-sm font-medium flex items-center space-x-1 transition-colors ${
                       isActive
-                        ? 'bg-[#FFD700] text-[#0D1B2A]'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                        ? 'bg-[#E95420] text-white shadow-md'
+                        : 'text-[#AEA79F] hover:bg-[#77216F] hover:text-white'
                     }`}
                   >
                     <Icon className="h-4 w-4" />
@@ -83,7 +83,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-lg text-[#AEA79F] hover:text-white hover:bg-[#77216F] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#E95420]"
             >
               {isMenuOpen ? (
                 <X className="block h-6 w-6" />
@@ -98,7 +98,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#77216F] rounded-b-xl">
             {navigation.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.href;
@@ -106,10 +106,10 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-base font-medium transition-colors ${
                     isActive
-                      ? 'bg-[#FFD700] text-[#0D1B2A]'
-                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                      ? 'bg-[#E95420] text-white shadow-md'
+                      : 'text-[#AEA79F] hover:bg-[#2C001E] hover:text-white'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

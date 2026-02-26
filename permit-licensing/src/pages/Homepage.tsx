@@ -6,215 +6,179 @@ const Homepage = () => {
     {
       icon: Briefcase,
       title: 'Business Permit',
-      description: 'Apply for new business registration or renew existing permits',
+      description: 'Apply for new business registration or renew existing permits with streamlined digital processes.',
       link: '/business-permit',
-      color: 'bg-blue-500',
     },
     {
       icon: Building,
       title: 'Building Permit',
-      description: 'Construction, renovation, and building permit applications',
+      description: 'Construction, renovation, and building permit applications processed efficiently.',
       link: '/building-permit',
-      color: 'bg-green-500',
     },
     {
       icon: FileText,
       title: 'Zoning Clearance',
-      description: 'Zoning compliance certificates and clearances',
+      description: 'Zoning compliance certificates and clearances for your property development.',
       link: '/building-permit',
-      color: 'bg-purple-500',
     },
     {
       icon: Shield,
       title: 'Sanitary Permit',
-      description: 'Health department clearances and sanitary permits',
+      description: 'Health department clearances and sanitary permits for food establishments.',
       link: '/business-permit',
-      color: 'bg-red-500',
-    },
-    {
-      icon: Shield,
-      title: 'Fire Safety',
-      description: 'Fire safety inspections and clearance certificates',
-      link: '/business-permit',
-      color: 'bg-orange-500',
     },
     {
       icon: Users,
-      title: 'Barangay Clearance',
-      description: 'Community clearances and barangay certificates',
-      link: '/business-permit',
-      color: 'bg-indigo-500',
+      title: 'Community Services',
+      description: 'Additional municipal services and community development programs.',
+      link: '/contact',
     },
   ];
 
-  const announcements = [
+  const steps = [
     {
-      date: '2026-02-25',
-      title: 'Extended Holiday Schedule',
-      content: 'City Hall will be closed on February 28 for EDSA People Power Revolution Day.',
-      type: 'info',
+      number: '01',
+      title: 'Prepare Requirements',
+      description: 'Review the complete list of required documents for your permit type.',
     },
     {
-      date: '2026-02-20',
-      title: 'Business Permit Renewal Deadline',
-      content: 'Reminder: All business permits must be renewed before March 31, 2026 to avoid penalties.',
-      type: 'warning',
+      number: '02', 
+      title: 'Submit Application',
+      description: 'Complete the online form or visit our office to submit your application.',
     },
     {
-      date: '2026-02-15',
-      title: 'New Online System Features',
-      content: 'We have added document upload functionality and real-time application tracking.',
-      type: 'success',
+      number: '03',
+      title: 'Track Progress',
+      description: 'Monitor your application status online using our tracking system.',
     },
     {
-      date: '2026-02-10',
-      title: 'Updated Fee Schedule',
-      content: 'New fee structure for building permits is now in effect. Check the fee schedule for details.',
-      type: 'info',
-    },
-    {
-      date: '2026-02-01',
-      title: 'System Maintenance',
-      content: 'The online portal will undergo maintenance on February 29, 2:00 AM - 6:00 AM.',
-      type: 'warning',
+      number: '04',
+      title: 'Receive Permit',
+      description: 'Collect your approved permit from our office or via registered mail.',
     },
   ];
-
-  const getAnnouncementStyle = (type: string) => {
-    switch (type) {
-      case 'success':
-        return 'border-green-200 bg-green-50 text-green-800';
-      case 'warning':
-        return 'border-yellow-200 bg-yellow-50 text-yellow-800';
-      case 'info':
-      default:
-        return 'border-blue-200 bg-blue-50 text-blue-800';
-    }
-  };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="bg-[#FBFBFD]">
       {/* Hero Section */}
-      <div className="bg-[#0038A8] text-white rounded-lg px-8 py-12 mb-8">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-bold mb-4">
-            Online Permit and Licensing System
-          </h1>
-          <p className="text-xl text-blue-100 mb-6">
-            Apply for permits and licenses online. Fast, convenient, and transparent 
-            services for the citizens of Meycauayan.
-          </p>
-          <Link
-            to="/tracker"
-            className="inline-block bg-white text-[#0038A8] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-          >
-            Track Your Application
-          </Link>
-        </div>
-      </div>
-
-      {/* Services Grid */}
-      <div className="mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Available Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
+      <section className="relative overflow-hidden bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+          <div className="text-center">
+            <h1 className="text-5xl lg:text-7xl font-extralight text-[#1D1D1F] leading-tight mb-6">
+              Digital Permit
+              <br />
+              <span className="font-light">Services</span>
+            </h1>
+            <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
+              Streamlined government services for the City of Meycauayan. 
+              Apply, track, and manage your permits with ease.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
-                key={index}
-                to={service.link}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 border border-gray-200"
+                to="/business-permit"
+                className="inline-flex items-center px-8 py-4 bg-[#0066CC] text-white font-medium rounded-full hover:bg-[#004499] transition-all duration-200 shadow-sm"
               >
-                <div className={`${service.color} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
-                  <IconComponent className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  {service.description}
-                </p>
-                <span className="inline-block bg-[#0038A8] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
-                  Apply Now
-                </span>
+                Get Started
               </Link>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Two Column Layout for Announcements and Office Hours */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Announcements */}
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Announcements</h2>
-          <div className="space-y-4">
-            {announcements.map((announcement, index) => (
-              <div
-                key={index}
-                className={`border rounded-lg p-4 ${getAnnouncementStyle(announcement.type)}`}
+              <Link
+                to="/tracker"
+                className="inline-flex items-center px-8 py-4 bg-transparent text-[#0066CC] font-medium rounded-full border border-[#0066CC] hover:bg-[#0066CC] hover:text-white transition-all duration-200"
               >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-semibold">{announcement.title}</h3>
-                  <span className="text-sm opacity-75">
-                    {new Date(announcement.date).toLocaleDateString('en-PH')}
+                Track Application
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-[#F5F5F7]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-6">
+              Our Services
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Comprehensive permit and licensing services designed for efficiency and transparency.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Link
+                  key={index}
+                  to={service.link}
+                  className="group bg-white rounded-3xl p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  <div className="mb-6">
+                    <div className="w-16 h-16 bg-[#F5F5F7] rounded-2xl flex items-center justify-center group-hover:bg-[#0066CC] transition-colors duration-300">
+                      <IconComponent className="w-8 h-8 text-gray-600 group-hover:text-white transition-colors duration-300" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-light text-[#1D1D1F] mb-4">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-6">
+              Simple Process
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Four easy steps to get your permit processed quickly and efficiently.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {steps.map((step, index) => (
+              <div key={index} className="text-center">
+                <div className="mb-6">
+                  <span className="inline-flex items-center justify-center w-16 h-16 bg-[#F5F5F7] text-[#0066CC] text-xl font-light rounded-2xl">
+                    {step.number}
                   </span>
                 </div>
-                <p className="text-sm">{announcement.content}</p>
+                <h3 className="text-lg font-light text-[#1D1D1F] mb-4">{step.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Office Hours and Quick Info */}
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Office Information</h2>
-          
-          {/* Office Hours */}
-          <div className="bg-white rounded-lg shadow-md p-6 mb-6 border border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Office Hours</h3>
-            <div className="space-y-2 text-gray-600">
-              <div className="flex justify-between">
-                <span>Monday - Friday</span>
-                <span className="font-semibold">7:00 AM - 5:00 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Saturday</span>
-                <span className="font-semibold">8:00 AM - 12:00 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Sunday</span>
-                <span className="font-semibold text-red-600">Closed</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Access</h3>
-            <div className="space-y-3">
-              <Link
-                to="/requirements"
-                className="block text-[#0038A8] hover:text-blue-700 font-medium"
-              >
-                Document Requirements →
-              </Link>
-              <Link
-                to="/fee-schedule"
-                className="block text-[#0038A8] hover:text-blue-700 font-medium"
-              >
-                Fee Schedule →
-              </Link>
-              <Link
-                to="/contact"
-                className="block text-[#0038A8] hover:text-blue-700 font-medium"
-              >
-                Contact Information →
-              </Link>
-            </div>
+      {/* CTA Section */}
+      <section className="py-24 bg-[#F5F5F7]">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-6">
+            Ready to get started?
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed mb-10">
+            Choose your permit type below or contact us for assistance with your application.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link
+              to="/requirements"
+              className="inline-flex items-center px-8 py-4 bg-[#0066CC] text-white font-medium rounded-full hover:bg-[#004499] transition-all duration-200 shadow-sm"
+            >
+              View Requirements
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center px-8 py-4 bg-transparent text-[#0066CC] font-medium rounded-full border border-[#0066CC] hover:bg-[#0066CC] hover:text-white transition-all duration-200"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

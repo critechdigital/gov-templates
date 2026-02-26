@@ -1,1 +1,91 @@
 @import "tailwindcss";
+
+/* Amazon/AWS Design System */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #16191F;
+  line-height: 1.5;
+}
+
+/* AWS Color Variables */
+:root {
+  --aws-dark-header: #232F3E;
+  --aws-darker-header: #161E2D;
+  --aws-orange: #FF9900;
+  --aws-dark-text: #16191F;
+  --aws-border-gray: #D5D9D9;
+  --aws-bg-gray: #F0F2F2;
+  --aws-teal: #007185;
+  --aws-yellow-banner: #FFF8E7;
+}
+
+/* Dense, information-rich styling */
+.aws-btn-primary {
+  background-color: var(--aws-orange);
+  color: var(--aws-dark-text);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.aws-btn-secondary {
+  background-color: transparent;
+  color: var(--aws-dark-text);
+  border: 1px solid #D5D9D9;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.aws-card {
+  background-color: white;
+  border: 1px solid var(--aws-border-gray);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.aws-card-important {
+  border-top: 3px solid var(--aws-orange);
+}
+
+.aws-table-header {
+  background-color: var(--aws-bg-gray);
+  border-bottom: 1px solid var(--aws-border-gray);
+}
+
+.aws-breadcrumb {
+  font-size: 12px;
+  color: var(--aws-dark-text);
+}
+
+.aws-breadcrumb a {
+  color: var(--aws-orange);
+  text-decoration: none;
+}
+
+.aws-breadcrumb a:hover {
+  color: var(--aws-teal);
+}
+
+.aws-alert-banner {
+  background-color: var(--aws-yellow-banner);
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+
+/* Compact spacing */
+.aws-dense {
+  line-height: 1.3;
+}
+
+.aws-compact-padding {
+  padding: 8px 12px;
+}

@@ -228,58 +228,58 @@ const Officials = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Elected Officials</h1>
+        <h1 className="text-3xl font-semibold text-[#323130] mb-2">Elected Officials</h1>
         <p className="text-gray-600">Meet your local government representatives serving the Municipality of San Rafael, Bulacan</p>
       </div>
 
       {/* Summary Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
+        <div className="fluent-card p-6">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-blue-50">
-              <Users className="w-6 h-6 text-blue-600" />
+            <div className="p-3 rounded-lg bg-blue-50">
+              <Users className="w-6 h-6 text-[#0078D4]" />
             </div>
             <div className="ml-4">
-              <h3 className="text-2xl font-bold text-gray-900">10</h3>
+              <h3 className="text-2xl font-semibold text-[#323130]">10</h3>
               <p className="text-gray-600 font-medium">Total Officials</p>
             </div>
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
+        <div className="fluent-card p-6">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-green-50">
+            <div className="p-3 rounded-lg bg-green-50">
               <Award className="w-6 h-6 text-green-600" />
             </div>
             <div className="ml-4">
-              <h3 className="text-2xl font-bold text-gray-900">2022-2025</h3>
+              <h3 className="text-2xl font-semibold text-[#323130]">2022-2025</h3>
               <p className="text-gray-600 font-medium">Current Term</p>
             </div>
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
+        <div className="fluent-card p-6">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-purple-50">
-              <Calendar className="w-6 h-6 text-purple-600" />
+            <div className="p-3 rounded-lg bg-purple-50">
+              <Calendar className="w-6 h-6 text-[#8B5CF6]" />
             </div>
             <div className="ml-4">
-              <h3 className="text-2xl font-bold text-gray-900">3</h3>
+              <h3 className="text-2xl font-semibold text-[#323130]">3</h3>
               <p className="text-gray-600 font-medium">Years Served</p>
             </div>
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
+        <div className="fluent-card p-6">
           <div className="flex items-center">
-            <div className="p-3 rounded-full bg-orange-50">
+            <div className="p-3 rounded-lg bg-orange-50">
               <MapPin className="w-6 h-6 text-orange-600" />
             </div>
             <div className="ml-4">
-              <h3 className="text-2xl font-bold text-gray-900">15</h3>
+              <h3 className="text-2xl font-semibold text-[#323130]">15</h3>
               <p className="text-gray-600 font-medium">Committees</p>
             </div>
           </div>
@@ -288,10 +288,10 @@ const Officials = () => {
 
       {/* Executive Officials */}
       <div className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Executive Officials</h2>
+        <h2 className="text-2xl font-semibold text-[#323130] mb-6">Executive Officials</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {officialsData.filter(official => official.position.includes('Mayor')).map((official) => (
-            <div key={official.id} className="bg-white rounded-lg shadow-lg border border-gray-200 p-8">
+            <div key={official.id} className="fluent-card p-8">
               <div className="flex items-start space-x-6">
                 <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center">
                   <User className="w-12 h-12 text-gray-400" />

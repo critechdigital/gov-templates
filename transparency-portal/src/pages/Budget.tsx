@@ -74,21 +74,21 @@ const Budget = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Budget Transparency</h1>
+        <h1 className="text-3xl font-semibold text-[#323130] mb-2">Budget Transparency</h1>
         <p className="text-gray-600">Annual budget breakdown and expenditure tracking for Municipality of San Rafael, Bulacan</p>
       </div>
 
       {/* Budget Summary */}
-      <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6 mb-8">
+      <div className="fluent-card p-6 mb-8">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-900">Budget Summary</h2>
+          <h2 className="text-xl font-semibold text-[#323130]">Budget Summary</h2>
           <select 
             value={selectedYear} 
             onChange={(e) => setSelectedYear(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-2 border border-[#EDEBE9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0078D4] ms-focus"
           >
             <option>2025-2026</option>
             <option>2024-2025</option>

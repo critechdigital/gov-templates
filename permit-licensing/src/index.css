@@ -1,1 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
+
+/* Apple Human Interface Design Base Styles */
+:root {
+  --apple-near-black: #1D1D1F;
+  --apple-light-bg: #FBFBFD;
+  --apple-light-bg-alt: #F5F5F7;
+  --apple-blue-link: #0066CC;
+  --apple-border-subtle: #E5E5E7;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--apple-near-black);
+  line-height: 1.7;
+}
+
+/* Apple-style focus states */
+*:focus-visible {
+  outline: 2px solid var(--apple-blue-link);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

@@ -66,14 +66,14 @@ export default function BidOpportunities() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="bg-white rounded-lg shadow-sm border p-6">
+      <div className="bg-[#161B22] rounded-none border border-[#30363D] p-6 terminal-glow terminal-border">
         <div className="flex items-center gap-3 mb-4">
-          <FileText className="w-6 h-6 text-[#0038A8]" />
-          <h1 className="text-2xl font-bold text-gray-900">Bid Opportunities</h1>
+          <FileText className="w-6 h-6 text-[#4ADE80]" />
+          <h1 className="text-2xl font-mono font-bold text-[#E6EDF3] terminal-breadcrumb">bid_opportunities</h1>
         </div>
-        <p className="text-gray-600">
-          Browse current procurement opportunities from the Provincial Government of Bulacan. 
-          Click on any opportunity to view detailed requirements and submission guidelines.
+        <p className="text-[#8B949E]">
+          [SYSTEM] Browse current procurement opportunities from Provincial Government of Bulacan. 
+          Select any opportunity to access detailed requirements and submission protocols.
         </p>
       </div>
 

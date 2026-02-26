@@ -16,28 +16,28 @@ export default function Homepage() {
   return (
     <div className="space-y-8">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#0038A8] to-blue-700 text-white rounded-lg p-8">
+      <section className="bg-gradient-to-r from-[#161B22] to-[#0D1117] text-[#E6EDF3] rounded-none p-8 terminal-glow terminal-border">
         <div className="max-w-4xl">
-          <h1 className="text-3xl font-bold mb-4">
-            Welcome to the Provincial Government of Bulacan Procurement Portal
+          <h1 className="text-3xl font-mono font-bold mb-4 text-[#4ADE80]">
+            >_ WELCOME TO BULACAN_PROCUREMENT_TERMINAL
           </h1>
-          <p className="text-lg mb-6 text-blue-100">
-            Your gateway to transparent and competitive government procurement. 
-            Find current bidding opportunities, track awarded contracts, and access 
-            procurement information in compliance with RA 9184 and RA 12009.
+          <p className="text-lg mb-6 text-[#8B949E]">
+            [SYSTEM_MESSAGE] Gateway to transparent government procurement initialized. 
+            Access bidding opportunities, contract tracking, and procurement data 
+            in compliance with RA 9184 and RA 12009 protocols.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               to="/opportunities"
-              className="bg-white text-[#0038A8] px-6 py-3 rounded-md font-semibold hover:bg-blue-50 transition-colors"
+              className="bg-transparent border-2 border-[#4ADE80] text-[#4ADE80] px-6 py-3 rounded-none font-mono font-semibold hover:bg-[#4ADE80] hover:text-[#0D1117] transition-all"
             >
-              View Bid Opportunities
+              $ ./view_opportunities.sh
             </Link>
             <Link
               to="/supplier-registration"
-              className="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white/10 transition-colors"
+              className="border-2 border-[#22D3EE] text-[#22D3EE] px-6 py-3 rounded-none font-mono font-semibold hover:bg-[#22D3EE] hover:text-[#0D1117] transition-all"
             >
-              Register as Supplier
+              $ ./register_supplier.sh
             </Link>
           </div>
         </div>
@@ -46,47 +46,47 @@ export default function Homepage() {
       {/* Statistics Cards */}
       <section>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
+          <div className="bg-[#161B22] p-6 rounded-none border border-[#30363D] terminal-glow terminal-border">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <FileText className="w-6 h-6 text-green-600" />
+              <div className="p-2 bg-[#4ADE80]/20 rounded-none border border-[#4ADE80]">
+                <FileText className="w-6 h-6 text-[#4ADE80]" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900">{activeBids.length}</h3>
-                <p className="text-sm text-gray-600">Active Opportunities</p>
+                <h3 className="text-2xl font-mono font-bold text-[#E6EDF3]">{activeBids.length}</h3>
+                <p className="text-sm text-[#8B949E] font-mono">ACTIVE_OPPORTUNITIES</p>
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
+          <div className="bg-[#161B22] p-6 rounded-none border border-[#30363D] terminal-glow terminal-border-cyan">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
+              <div className="p-2 bg-[#22D3EE]/20 rounded-none border border-[#22D3EE]">
+                <TrendingUp className="w-6 h-6 text-[#22D3EE]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900">{formatCurrency(totalActiveBudget)}</h3>
-                <p className="text-sm text-gray-600">Active Budget</p>
+                <h3 className="text-lg font-mono font-bold text-[#E6EDF3]">{formatCurrency(totalActiveBudget)}</h3>
+                <p className="text-sm text-[#8B949E] font-mono">ACTIVE_BUDGET</p>
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
+          <div className="bg-[#161B22] p-6 rounded-none border border-[#30363D] terminal-glow">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-yellow-100 rounded-lg">
-                <Award className="w-6 h-6 text-yellow-600" />
+              <div className="p-2 bg-[#FBBF24]/20 rounded-none border border-[#FBBF24]">
+                <Award className="w-6 h-6 text-[#FBBF24]" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900">{awardedContracts.length}</h3>
-                <p className="text-sm text-gray-600">Contracts Awarded</p>
+                <h3 className="text-2xl font-mono font-bold text-[#E6EDF3]">{awardedContracts.length}</h3>
+                <p className="text-sm text-[#8B949E] font-mono">CONTRACTS_AWARDED</p>
               </div>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
+          <div className="bg-[#161B22] p-6 rounded-none border border-[#30363D] terminal-glow">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <Users className="w-6 h-6 text-purple-600" />
+              <div className="p-2 bg-[#EF4444]/20 rounded-none border border-[#EF4444]">
+                <Users className="w-6 h-6 text-[#EF4444]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900">{formatCurrency(totalAwardedAmount)}</h3>
-                <p className="text-sm text-gray-600">Total Awarded</p>
+                <h3 className="text-lg font-mono font-bold text-[#E6EDF3]">{formatCurrency(totalAwardedAmount)}</h3>
+                <p className="text-sm text-[#8B949E] font-mono">TOTAL_AWARDED</p>
               </div>
             </div>
           </div>
@@ -95,18 +95,18 @@ export default function Homepage() {
 
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Active Opportunities */}
-        <section className="bg-white rounded-lg shadow-sm border">
-          <div className="p-6 border-b border-gray-200">
+        <section className="bg-[#161B22] rounded-none border border-[#30363D] terminal-glow terminal-border">
+          <div className="p-6 border-b border-[#30363D]">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-[#0038A8]" />
-                Active Bid Opportunities
+              <h2 className="text-xl font-mono font-bold text-[#E6EDF3] flex items-center gap-2">
+                <FileText className="w-5 h-5 text-[#4ADE80]" />
+                [ACTIVE_BID_OPPORTUNITIES]
               </h2>
               <Link
                 to="/opportunities"
-                className="text-[#0038A8] hover:text-blue-700 text-sm font-medium flex items-center gap-1"
+                className="text-[#4ADE80] hover:text-[#22D3EE] text-sm font-mono font-medium flex items-center gap-1 transition-colors"
               >
-                View All
+                ./view_all.sh
                 <ExternalLink className="w-4 h-4" />
               </Link>
             </div>
@@ -114,36 +114,36 @@ export default function Homepage() {
           <div className="p-6">
             <div className="space-y-4">
               {activeBids.slice(0, 5).map((bid) => (
-                <div key={bid.id} className="border border-gray-200 rounded-lg p-4">
+                <div key={bid.id} className="border border-[#30363D] rounded-none p-4 hover:border-[#4ADE80]/50 transition-colors">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-semibold text-gray-900 text-sm">{bid.title}</h3>
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(bid.status)}`}>
-                      {bid.status}
+                    <h3 className="font-semibold text-[#E6EDF3] text-sm">{bid.title}</h3>
+                    <span className={`px-2 py-1 rounded-none text-xs font-mono font-medium status-badge ${getStatusColor(bid.status)}`}>
+                      {bid.status.toUpperCase()}
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
-                    <div>
-                      <span className="font-medium">Reference:</span> {bid.referenceNumber}
+                  <div className="grid grid-cols-2 gap-4 text-sm text-[#8B949E]">
+                    <div className="font-mono">
+                      <span className="text-[#4ADE80]">REF:</span> {bid.referenceNumber}
                     </div>
-                    <div>
-                      <span className="font-medium">Budget:</span> {formatCurrency(bid.approvedBudget)}
+                    <div className="font-mono">
+                      <span className="text-[#4ADE80]">BUDGET:</span> {formatCurrency(bid.approvedBudget)}
                     </div>
-                    <div>
-                      <span className="font-medium">Category:</span> {bid.category}
+                    <div className="font-mono">
+                      <span className="text-[#4ADE80]">CATEGORY:</span> {bid.category}
                     </div>
                     <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4 text-orange-500" />
-                      <span className="font-medium text-orange-600">
-                        {getDaysUntilDeadline(bid.submissionDeadline)} days left
+                      <Clock className="w-4 h-4 text-[#FBBF24]" />
+                      <span className="font-mono text-[#FBBF24]">
+                        {getDaysUntilDeadline(bid.submissionDeadline)}d LEFT
                       </span>
                     </div>
                   </div>
                   <div className="mt-2">
                     <Link
                       to={`/opportunities/${bid.id}`}
-                      className="text-[#0038A8] hover:text-blue-700 text-sm font-medium"
+                      className="text-[#22D3EE] hover:text-[#4ADE80] text-sm font-mono transition-colors"
                     >
-                      View Details →
+                      → ./view_details.sh
                     </Link>
                   </div>
                 </div>
@@ -153,18 +153,18 @@ export default function Homepage() {
         </section>
 
         {/* Recently Awarded */}
-        <section className="bg-white rounded-lg shadow-sm border">
-          <div className="p-6 border-b border-gray-200">
+        <section className="bg-[#161B22] rounded-none border border-[#30363D] terminal-glow terminal-border-cyan">
+          <div className="p-6 border-b border-[#30363D]">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                <Award className="w-5 h-5 text-[#0038A8]" />
-                Recently Awarded Contracts
+              <h2 className="text-xl font-mono font-bold text-[#E6EDF3] flex items-center gap-2">
+                <Award className="w-5 h-5 text-[#22D3EE]" />
+                [RECENTLY_AWARDED_CONTRACTS]
               </h2>
               <Link
                 to="/awarded-contracts"
-                className="text-[#0038A8] hover:text-blue-700 text-sm font-medium flex items-center gap-1"
+                className="text-[#22D3EE] hover:text-[#4ADE80] text-sm font-mono font-medium flex items-center gap-1 transition-colors"
               >
-                View All
+                ./list_awards.sh
                 <ExternalLink className="w-4 h-4" />
               </Link>
             </div>
@@ -172,20 +172,20 @@ export default function Homepage() {
           <div className="p-6">
             <div className="space-y-4">
               {recentAwards.map((contract) => (
-                <div key={contract.id} className="border border-gray-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-gray-900 text-sm mb-2">{contract.projectTitle}</h3>
-                  <div className="grid grid-cols-1 gap-2 text-sm text-gray-600">
-                    <div>
-                      <span className="font-medium">Contractor:</span> {contract.contractor}
+                <div key={contract.id} className="border border-[#30363D] rounded-none p-4 hover:border-[#22D3EE]/50 transition-colors">
+                  <h3 className="font-semibold text-[#E6EDF3] text-sm mb-2">{contract.projectTitle}</h3>
+                  <div className="grid grid-cols-1 gap-2 text-sm text-[#8B949E]">
+                    <div className="font-mono">
+                      <span className="text-[#22D3EE]">CONTRACTOR:</span> {contract.contractor}
                     </div>
-                    <div>
-                      <span className="font-medium">Amount:</span> {formatCurrency(contract.contractAmount)}
-                      <span className="text-xs text-gray-500 ml-1">
+                    <div className="font-mono">
+                      <span className="text-[#22D3EE]">AMOUNT:</span> {formatCurrency(contract.contractAmount)}
+                      <span className="text-xs text-[#8B949E] ml-1">
                         (ABC: {formatCurrency(contract.approvedBudget)})
                       </span>
                     </div>
-                    <div>
-                      <span className="font-medium">Date Awarded:</span> {formatDate(contract.dateAwarded)}
+                    <div className="font-mono">
+                      <span className="text-[#22D3EE]">DATE_AWARDED:</span> {formatDate(contract.dateAwarded)}
                     </div>
                   </div>
                 </div>
@@ -197,19 +197,19 @@ export default function Homepage() {
 
       {/* Urgent Deadlines */}
       {upcomingDeadlines.length > 0 && (
-        <section className="bg-orange-50 border border-orange-200 rounded-lg p-6">
-          <h2 className="text-xl font-bold text-orange-800 mb-4 flex items-center gap-2">
+        <section className="bg-[#161B22] border border-[#EF4444] rounded-none p-6 terminal-glow">
+          <h2 className="text-xl font-mono font-bold text-[#EF4444] mb-4 flex items-center gap-2">
             <Clock className="w-5 h-5" />
-            Urgent: Deadlines This Week
+            [!URGENT] DEADLINES_THIS_WEEK
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
             {upcomingDeadlines.map((bid) => (
-              <div key={bid.id} className="bg-white border border-orange-200 rounded-lg p-4">
-                <h3 className="font-semibold text-gray-900 text-sm mb-2">{bid.title}</h3>
+              <div key={bid.id} className="bg-[#0D1117] border border-[#EF4444]/50 rounded-none p-4">
+                <h3 className="font-semibold text-[#E6EDF3] text-sm mb-2">{bid.title}</h3>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-600">Deadline: {formatDate(bid.submissionDeadline)}</span>
-                  <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs font-medium">
-                    {getDaysUntilDeadline(bid.submissionDeadline)} days left
+                  <span className="text-[#8B949E] font-mono">DEADLINE: {formatDate(bid.submissionDeadline)}</span>
+                  <span className="bg-[#EF4444]/20 text-[#EF4444] border border-[#EF4444] px-2 py-1 rounded-none text-xs font-mono status-badge">
+                    {getDaysUntilDeadline(bid.submissionDeadline)}D_LEFT
                   </span>
                 </div>
               </div>
@@ -219,27 +219,27 @@ export default function Homepage() {
       )}
 
       {/* BAC Announcements */}
-      <section className="bg-white rounded-lg shadow-sm border">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-[#0038A8]" />
-            BAC Announcements & Procurement Calendar
+      <section className="bg-[#161B22] rounded-none border border-[#30363D] terminal-glow">
+        <div className="p-6 border-b border-[#30363D]">
+          <h2 className="text-xl font-mono font-bold text-[#E6EDF3] flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-[#FBBF24]" />
+            [BAC_ANNOUNCEMENTS] & PROCUREMENT_CALENDAR
           </h2>
         </div>
         <div className="p-6">
           <div className="space-y-4">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">Pre-Bidding Conference Schedule</h3>
-              <ul className="space-y-2 text-sm text-blue-800">
-                <li>• March 3, 2025 - Multi-Purpose Building Construction (PGB-2025-002)</li>
-                <li>• March 8, 2025 - Office Supplies Procurement (PGB-2025-001)</li>
-                <li>• March 15, 2025 - Medical Equipment Procurement (PGB-2025-004)</li>
+            <div className="bg-[#0D1117] border border-[#22D3EE] rounded-none p-4">
+              <h3 className="font-mono font-semibold text-[#22D3EE] mb-2">[PRE_BIDDING_CONFERENCE_SCHEDULE]</h3>
+              <ul className="space-y-2 text-sm text-[#8B949E] font-mono">
+                <li>• 2025-03-03 : Multi-Purpose Building Construction (PGB-2025-002)</li>
+                <li>• 2025-03-08 : Office Supplies Procurement (PGB-2025-001)</li>
+                <li>• 2025-03-15 : Medical Equipment Procurement (PGB-2025-004)</li>
               </ul>
             </div>
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <h3 className="font-semibold text-green-900 mb-2">Notice to Suppliers</h3>
-              <p className="text-sm text-green-800">
-                All suppliers are reminded to update their PhilGEPS registration and ensure 
+            <div className="bg-[#0D1117] border border-[#4ADE80] rounded-none p-4">
+              <h3 className="font-mono font-semibold text-[#4ADE80] mb-2">[NOTICE_TO_SUPPLIERS]</h3>
+              <p className="text-sm text-[#8B949E]">
+                All suppliers are required to update their PhilGEPS registration and ensure 
                 compliance with the latest GPPB guidelines. New supplier orientation sessions 
                 are scheduled every Friday at the Provincial Capitol.
               </p>
@@ -249,60 +249,60 @@ export default function Homepage() {
       </section>
 
       {/* Quick Links */}
-      <section className="bg-white rounded-lg shadow-sm border">
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-gray-900">Quick Links & Resources</h2>
+      <section className="bg-[#161B22] rounded-none border border-[#30363D] terminal-glow">
+        <div className="p-6 border-b border-[#30363D]">
+          <h2 className="text-xl font-mono font-bold text-[#E6EDF3]">[QUICK_LINKS] & RESOURCES</h2>
         </div>
         <div className="p-6">
           <div className="grid md:grid-cols-3 gap-6">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">External Resources</h3>
+              <h3 className="font-mono font-semibold text-[#4ADE80] mb-3">[EXTERNAL_RESOURCES]</h3>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a 
                     href="https://philgeps.gov.ph" 
                     target="_blank" 
-                    className="text-[#0038A8] hover:text-blue-700 flex items-center gap-1"
+                    className="text-[#22D3EE] hover:text-[#4ADE80] font-mono flex items-center gap-1 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    PhilGEPS Portal
+                    → philgeps.gov.ph
                   </a>
                 </li>
                 <li>
                   <a 
                     href="#" 
-                    className="text-[#0038A8] hover:text-blue-700 flex items-center gap-1"
+                    className="text-[#22D3EE] hover:text-[#4ADE80] font-mono flex items-center gap-1 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    DBM Procurement Manual
+                    → dbm_procurement_manual
                   </a>
                 </li>
                 <li>
                   <a 
                     href="#" 
-                    className="text-[#0038A8] hover:text-blue-700 flex items-center gap-1"
+                    className="text-[#22D3EE] hover:text-[#4ADE80] font-mono flex items-center gap-1 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    GPPB Resolutions
+                    → gppb_resolutions
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">Legal Framework</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• RA 9184 - Government Procurement Reform Act</li>
-                <li>• RA 12009 - Amendment to RA 9184</li>
+              <h3 className="font-mono font-semibold text-[#4ADE80] mb-3">[LEGAL_FRAMEWORK]</h3>
+              <ul className="space-y-2 text-sm text-[#8B949E] font-mono">
+                <li>• RA_9184 - Government Procurement Reform Act</li>
+                <li>• RA_12009 - Amendment to RA 9184</li>
                 <li>• IRR-A of RA 9184</li>
                 <li>• GPPB Guidelines and Resolutions</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">Contact Information</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>BAC Secretariat: (044) 662-1109</li>
-                <li>Provincial Engineering Office: (044) 662-1104</li>
-                <li>General Services Office: (044) 662-1110</li>
+              <h3 className="font-mono font-semibold text-[#4ADE80] mb-3">[CONTACT_INFO]</h3>
+              <ul className="space-y-2 text-sm text-[#8B949E] font-mono">
+                <li>BAC_Secretariat: (044) 662-1109</li>
+                <li>Provincial_Engineering: (044) 662-1104</li>
+                <li>General_Services: (044) 662-1110</li>
                 <li>Email: bac@bulacan.gov.ph</li>
               </ul>
             </div>

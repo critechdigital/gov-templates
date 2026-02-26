@@ -49,12 +49,12 @@ const Emergency = () => {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
-        <div className="flex items-center mb-4">
-          <AlertTriangle className="h-8 w-8 text-red-600 mr-3" />
-          <h1 className="text-3xl font-bold text-red-800">Emergency Information</h1>
+      <div className="bg-red-50 aws-compact-padding rounded border-l-3 border-l-red-500">
+        <div className="flex items-center mb-3">
+          <AlertTriangle className="h-6 w-6 text-red-600 mr-2" />
+          <h1 className="text-xl font-bold text-red-800 aws-dense">Emergency Information</h1>
         </div>
-        <p className="text-red-700 text-lg">
+        <p className="text-red-700 text-sm aws-dense">
           In case of emergency, call the appropriate hotlines below. For life-threatening emergencies, 
           dial <strong>911</strong> or contact your nearest emergency service.
         </p>
