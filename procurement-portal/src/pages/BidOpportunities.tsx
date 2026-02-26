@@ -66,88 +66,88 @@ export default function BidOpportunities() {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="bg-[#161B22] rounded-none border border-[#30363D] p-6 terminal-glow terminal-border">
-        <div className="flex items-center gap-3 mb-4">
-          <FileText className="w-6 h-6 text-[#4ADE80]" />
-          <h1 className="text-2xl font-mono font-bold text-[#E6EDF3] terminal-breadcrumb">bid_opportunities</h1>
+      <div className="corporate-card corporate-card-primary p-6">
+        <div className="flex items-center gap-4 mb-4">
+          <FileText className="w-7 h-7 text-[#0071DC]" />
+          <h1 className="text-2xl font-semibold text-[#2E2F32]">Bid Opportunities</h1>
         </div>
-        <p className="text-[#8B949E]">
-          [SYSTEM] Browse current procurement opportunities from Provincial Government of Bulacan. 
+        <p className="text-[#74767C] leading-relaxed">
+          Browse current procurement opportunities from Provincial Government of Bulacan. 
           Select any opportunity to access detailed requirements and submission protocols.
         </p>
       </div>
 
       {/* Filters */}
-      <div className="bg-[#161B22] rounded-none border border-[#30363D] p-6 terminal-glow">
-        <div className="flex items-center gap-2 mb-4">
-          <Filter className="w-5 h-5 text-[#22D3EE]" />
-          <h2 className="font-mono font-semibold text-[#E6EDF3]">[FILTER] & SEARCH</h2>
+      <div className="corporate-card p-6">
+        <div className="flex items-center gap-3 mb-6">
+          <Filter className="w-5 h-5 text-[#0071DC]" />
+          <h2 className="font-semibold text-[#2E2F32]">Filter & Search</h2>
           {(searchTerm || categoryFilter !== 'All' || modeFilter !== 'All' || statusFilter !== 'All' || budgetRangeFilter !== 'All') && (
             <button
               onClick={clearFilters}
-              className="ml-auto text-sm text-[#EF4444] hover:text-[#FBBF24] font-mono transition-colors"
+              className="ml-auto btn-outline text-sm px-4 py-2"
             >
-              ./clear_filters.sh
+              Clear Filters
             </button>
           )}
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
           <div className="relative">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-[#4ADE80]" />
+            <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-[#74767C]" />
             <input
               type="text"
-              placeholder="search_opportunities..."
+              placeholder="Search opportunities..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-3 py-2 bg-[#0D1117] border border-[#30363D] rounded-none text-[#E6EDF3] font-mono placeholder-[#8B949E] focus:outline-none focus:border-[#4ADE80] focus:ring-1 focus:ring-[#4ADE80] cursor-blink"
+              className="w-full pl-10 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-[#2E2F32] placeholder-[#74767C] focus:outline-none focus:border-[#0071DC] focus:ring-2 focus:ring-[#0071DC]/20 focus-walmart"
             />
           </div>
 
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value as ProjectCategory | 'All')}
-            className="bg-[#0D1117] border border-[#30363D] rounded-none px-3 py-2 text-[#E6EDF3] font-mono focus:outline-none focus:border-[#4ADE80] focus:ring-1 focus:ring-[#4ADE80]"
+            className="bg-white border border-gray-300 rounded-lg px-3 py-2 text-[#2E2F32] focus:outline-none focus:border-[#0071DC] focus:ring-2 focus:ring-[#0071DC]/20"
           >
-            <option value="All">all_categories</option>
-            <option value="Goods">goods</option>
-            <option value="Infrastructure">infrastructure</option>
-            <option value="Consulting Services">consulting_services</option>
+            <option value="All">All Categories</option>
+            <option value="Goods">Goods</option>
+            <option value="Infrastructure">Infrastructure</option>
+            <option value="Consulting Services">Consulting Services</option>
           </select>
 
           <select
             value={modeFilter}
             onChange={(e) => setModeFilter(e.target.value as ProcurementMode | 'All')}
-            className="bg-[#0D1117] border border-[#30363D] rounded-none px-3 py-2 text-[#E6EDF3] font-mono focus:outline-none focus:border-[#4ADE80] focus:ring-1 focus:ring-[#4ADE80]"
+            className="bg-white border border-gray-300 rounded-lg px-3 py-2 text-[#2E2F32] focus:outline-none focus:border-[#0071DC] focus:ring-2 focus:ring-[#0071DC]/20"
           >
-            <option value="All">all_procurement_modes</option>
-            <option value="Public Bidding">public_bidding</option>
-            <option value="Shopping">shopping</option>
-            <option value="SVP">small_value_procurement</option>
-            <option value="Direct Contracting">direct_contracting</option>
-            <option value="Emergency">emergency</option>
+            <option value="All">All Procurement Modes</option>
+            <option value="Public Bidding">Public Bidding</option>
+            <option value="Shopping">Shopping</option>
+            <option value="SVP">Small Value Procurement</option>
+            <option value="Direct Contracting">Direct Contracting</option>
+            <option value="Emergency">Emergency</option>
           </select>
 
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as BidStatus | 'All')}
-            className="bg-[#0D1117] border border-[#30363D] rounded-none px-3 py-2 text-[#E6EDF3] font-mono focus:outline-none focus:border-[#4ADE80] focus:ring-1 focus:ring-[#4ADE80]"
+            className="bg-white border border-gray-300 rounded-lg px-3 py-2 text-[#2E2F32] focus:outline-none focus:border-[#0071DC] focus:ring-2 focus:ring-[#0071DC]/20"
           >
-            <option value="All">all_status</option>
-            <option value="Open">open</option>
-            <option value="Closed">closed</option>
-            <option value="Under Evaluation">under_evaluation</option>
-            <option value="Awarded">awarded</option>
-            <option value="Failed">failed</option>
+            <option value="All">All Status</option>
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+            <option value="Under Evaluation">Under Evaluation</option>
+            <option value="Awarded">Awarded</option>
+            <option value="Failed">Failed</option>
           </select>
 
           <select
             value={budgetRangeFilter}
             onChange={(e) => setBudgetRangeFilter(e.target.value)}
-            className="bg-[#0D1117] border border-[#30363D] rounded-none px-3 py-2 text-[#E6EDF3] font-mono focus:outline-none focus:border-[#4ADE80] focus:ring-1 focus:ring-[#4ADE80]"
+            className="bg-white border border-gray-300 rounded-lg px-3 py-2 text-[#2E2F32] focus:outline-none focus:border-[#0071DC] focus:ring-2 focus:ring-[#0071DC]/20"
           >
             {budgetRanges.map(range => (
-              <option key={range.value} value={range.value}>{range.label.toLowerCase().replace(' ', '_')}</option>
+              <option key={range.value} value={range.value}>{range.label}</option>
             ))}
           </select>
         </div>
