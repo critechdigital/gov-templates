@@ -125,327 +125,343 @@ const FeeSchedule = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Fee Schedule</h1>
-        <p className="text-gray-600 mb-8">
-          Complete schedule of fees for permits, licenses, and certificates
-        </p>
+    <div className="min-h-screen bg-[#FBFBFD] py-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-4">
+            Fee Schedule
+          </h1>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Complete schedule of fees for permits, licenses, and certificates
+          </p>
+        </div>
 
-        <Tabs.Root defaultValue="business" className="w-full">
-          {/* Tab Navigation */}
-          <Tabs.List className="flex flex-wrap gap-2 mb-8 p-1 bg-gray-100 rounded-lg">
-            {feeCategories.map((category) => (
-              <Tabs.Trigger
-                key={category.id}
-                value={category.id}
-                className="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md transition-colors data-[state=active]:bg-white data-[state=active]:text-[#0038A8] data-[state=active]:shadow-sm text-gray-600 hover:text-gray-900"
-              >
-                <span>{category.icon}</span>
-                <span>{category.name}</span>
-              </Tabs.Trigger>
-            ))}
-          </Tabs.List>
+        <div className="bg-white rounded-3xl shadow-sm border border-[#E5E5E7]/50 p-8 lg:p-12">
+          <Tabs.Root defaultValue="business" className="w-full">
+            {/* Tab Navigation */}
+            <Tabs.List className="flex flex-wrap gap-3 mb-12 p-2 bg-[#F5F5F7] rounded-2xl">
+              {feeCategories.map((category) => (
+                <Tabs.Trigger
+                  key={category.id}
+                  value={category.id}
+                  className="flex items-center space-x-3 px-6 py-3 text-sm font-medium rounded-xl transition-all data-[state=active]:bg-white data-[state=active]:text-[#0066CC] data-[state=active]:shadow-sm text-gray-600 hover:text-[#1D1D1F] hover:bg-white/60"
+                >
+                  <span className="text-lg">{category.icon}</span>
+                  <span>{category.name}</span>
+                </Tabs.Trigger>
+              ))}
+            </Tabs.List>
 
-          {/* Business Permits Tab */}
-          <Tabs.Content value="business" className="space-y-8">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h2 className="text-xl font-semibold text-blue-900 mb-2">Business Permit Fees</h2>
-              <p className="text-blue-800">Fees are based on capitalization for new applications and gross sales for renewals</p>
-            </div>
-
-            {/* New Business Permits */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">New Business Permit Applications</h3>
-              <p className="text-gray-600 text-sm mb-4">Based on initial capitalization amount</p>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Capitalization Range
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Permit Fee
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Description
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {businessPermitFees.new.map((item, index) => (
-                      <tr key={index} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {item.range}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-[#0038A8]">
-                          {item.fee}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-600">
-                          {item.description}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {/* Business Permits Tab */}
+            <Tabs.Content value="business" className="space-y-12">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-8">
+                <h2 className="text-2xl font-light text-blue-900 mb-3">Business Permit Fees</h2>
+                <p className="text-blue-800 leading-relaxed">Fees are based on capitalization for new applications and gross sales for renewals</p>
               </div>
-            </div>
 
-            {/* Renewal Permits */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Business Permit Renewals</h3>
-              <p className="text-gray-600 text-sm mb-4">Based on gross sales from previous year</p>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Gross Sales Range
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Permit Fee
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Description
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {businessPermitFees.renewal.map((item, index) => (
-                      <tr key={index} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {item.range}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-[#0038A8]">
-                          {item.fee}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-600">
-                          {item.description}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* Additional Fees */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Additional Business Permit Fees</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {businessPermitFees.additional.map((item, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-gray-900">{item.item}</h4>
-                      <span className="font-semibold text-[#0038A8]">{item.fee}</span>
-                    </div>
-                    <p className="text-sm text-gray-600">{item.description}</p>
+              {/* New Business Permits */}
+              <div>
+                <h3 className="text-xl font-light text-[#1D1D1F] mb-6">New Business Permit Applications</h3>
+                <p className="text-gray-600 mb-8">Based on initial capitalization amount</p>
+                <div className="bg-white rounded-2xl border border-[#E5E5E7] overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full">
+                      <thead>
+                        <tr className="bg-[#F5F5F7] border-b border-[#E5E5E7]">
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Capitalization Range
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Permit Fee
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Description
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-[#E5E5E7]">
+                        {businessPermitFees.new.map((item, index) => (
+                          <tr key={index} className="hover:bg-[#F5F5F7] transition-colors">
+                            <td className="px-6 py-4 whitespace-nowrap font-medium text-[#1D1D1F]">
+                              {item.range}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap font-semibold text-[#0066CC] text-lg">
+                              {item.fee}
+                            </td>
+                            <td className="px-6 py-4 text-gray-600">
+                              {item.description}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
-                ))}
-              </div>
-            </div>
-          </Tabs.Content>
-
-          {/* Building Permits Tab */}
-          <Tabs.Content value="building" className="space-y-8">
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <h2 className="text-xl font-semibold text-green-900 mb-2">Building Permit Fees</h2>
-              <p className="text-green-800">Fees are calculated based on floor area and project cost</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Base Fees by Building Type</h3>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Building Type
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Rate per sq.m.
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Minimum Fee
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Cost-based Fee
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {buildingPermitFees.map((item, index) => (
-                      <tr key={index} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {item.description}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-[#0038A8]">
-                          {item.rate}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-green-600">
-                          {item.minimum}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {item.additional}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <div className="flex items-start space-x-3">
-                <Calculator className="w-5 h-5 text-yellow-600 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-yellow-900 mb-2">Fee Calculation Formula</h4>
-                  <p className="text-yellow-800 text-sm">
-                    <strong>Total Fee = </strong>
-                    MAX[(Floor Area × Rate per sq.m.), Minimum Fee] + (Project Cost × Cost Percentage) + Additional Fees
-                  </p>
                 </div>
               </div>
-            </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Additional Building Permit Fees</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {additionalBuildingFees.map((item, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-gray-900">{item.item}</h4>
-                      <span className="font-semibold text-[#0038A8]">{item.fee}</span>
-                    </div>
-                    <p className="text-sm text-gray-600">{item.description}</p>
+              {/* Renewal Permits */}
+              <div>
+                <h3 className="text-xl font-light text-[#1D1D1F] mb-6">Business Permit Renewals</h3>
+                <p className="text-gray-600 mb-8">Based on gross sales from previous year</p>
+                <div className="bg-white rounded-2xl border border-[#E5E5E7] overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full">
+                      <thead>
+                        <tr className="bg-[#F5F5F7] border-b border-[#E5E5E7]">
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Gross Sales Range
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Permit Fee
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Description
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-[#E5E5E7]">
+                        {businessPermitFees.renewal.map((item, index) => (
+                          <tr key={index} className="hover:bg-[#F5F5F7] transition-colors">
+                            <td className="px-6 py-4 whitespace-nowrap font-medium text-[#1D1D1F]">
+                              {item.range}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap font-semibold text-[#0066CC] text-lg">
+                              {item.fee}
+                            </td>
+                            <td className="px-6 py-4 text-gray-600">
+                              {item.description}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
-                ))}
-              </div>
-            </div>
-          </Tabs.Content>
-
-          {/* Clearances Tab */}
-          <Tabs.Content value="clearances" className="space-y-8">
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-              <h2 className="text-xl font-semibold text-purple-900 mb-2">Clearances & Certificates</h2>
-              <p className="text-purple-800">Fixed fees for various clearances and certificates</p>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Type of Clearance
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Fee
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Validity
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Description
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {clearanceFees.map((item, index) => (
-                    <tr key={index} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {item.type}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-[#0038A8]">
-                        {item.fee}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        {item.validity}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        {item.description}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Tabs.Content>
-
-          {/* Penalties Tab */}
-          <Tabs.Content value="penalties" className="space-y-8">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <h2 className="text-xl font-semibold text-red-900 mb-2">Penalties & Surcharges</h2>
-              <p className="text-red-800">Additional fees for late payments and violations</p>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Violation/Late Payment
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Penalty/Surcharge
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Description
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {penaltyFees.map((item, index) => (
-                    <tr key={index} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {item.violation}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-red-600">
-                        {item.penalty}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        {item.description}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <div className="flex items-start space-x-3">
-                <AlertCircle className="w-5 h-5 text-yellow-600 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-yellow-900 mb-2">Important Notice</h4>
-                  <p className="text-yellow-800 text-sm">
-                    Penalties are in addition to the original permit fees. Repeat offenders may face higher penalties 
-                    and additional sanctions. Contact our office for payment arrangements or if you have questions 
-                    about penalties.
-                  </p>
                 </div>
               </div>
-            </div>
-          </Tabs.Content>
-        </Tabs.Root>
+
+              {/* Additional Fees */}
+              <div>
+                <h3 className="text-xl font-light text-[#1D1D1F] mb-8">Additional Business Permit Fees</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {businessPermitFees.additional.map((item, index) => (
+                    <div key={index} className="bg-white border border-[#E5E5E7] rounded-2xl p-6">
+                      <div className="flex justify-between items-start mb-3">
+                        <h4 className="font-medium text-[#1D1D1F]">{item.item}</h4>
+                        <span className="font-semibold text-[#0066CC] text-lg">{item.fee}</span>
+                      </div>
+                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Tabs.Content>
+
+            {/* Building Permits Tab */}
+            <Tabs.Content value="building" className="space-y-12">
+              <div className="bg-gradient-to-r from-emerald-50 to-green-50 border border-emerald-200 rounded-2xl p-8">
+                <h2 className="text-2xl font-light text-emerald-900 mb-3">Building Permit Fees</h2>
+                <p className="text-emerald-800 leading-relaxed">Fees are calculated based on floor area and project cost</p>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-light text-[#1D1D1F] mb-8">Base Fees by Building Type</h3>
+                <div className="bg-white rounded-2xl border border-[#E5E5E7] overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full">
+                      <thead>
+                        <tr className="bg-[#F5F5F7] border-b border-[#E5E5E7]">
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Building Type
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Rate per sq.m.
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Minimum Fee
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                            Cost-based Fee
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-[#E5E5E7]">
+                        {buildingPermitFees.map((item, index) => (
+                          <tr key={index} className="hover:bg-[#F5F5F7] transition-colors">
+                            <td className="px-6 py-4 whitespace-nowrap font-medium text-[#1D1D1F]">
+                              {item.description}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap font-semibold text-[#0066CC]">
+                              {item.rate}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap font-semibold text-emerald-600">
+                              {item.minimum}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-gray-600">
+                              {item.additional}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-2xl p-8">
+                <div className="flex items-start space-x-4">
+                  <Calculator className="w-8 h-8 text-amber-600 mt-1" />
+                  <div>
+                    <h4 className="text-xl font-light text-amber-900 mb-4">Fee Calculation Formula</h4>
+                    <p className="text-amber-800 leading-relaxed">
+                      <strong>Total Fee = </strong>
+                      MAX[(Floor Area × Rate per sq.m.), Minimum Fee] + (Project Cost × Cost Percentage) + Additional Fees
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-light text-[#1D1D1F] mb-8">Additional Building Permit Fees</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {additionalBuildingFees.map((item, index) => (
+                    <div key={index} className="bg-white border border-[#E5E5E7] rounded-2xl p-6">
+                      <div className="flex justify-between items-start mb-3">
+                        <h4 className="font-medium text-[#1D1D1F]">{item.item}</h4>
+                        <span className="font-semibold text-[#0066CC] text-lg">{item.fee}</span>
+                      </div>
+                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Tabs.Content>
+
+            {/* Clearances Tab */}
+            <Tabs.Content value="clearances" className="space-y-12">
+              <div className="bg-gradient-to-r from-purple-50 to-violet-50 border border-purple-200 rounded-2xl p-8">
+                <h2 className="text-2xl font-light text-purple-900 mb-3">Clearances & Certificates</h2>
+                <p className="text-purple-800 leading-relaxed">Fixed fees for various clearances and certificates</p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-[#E5E5E7] overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="min-w-full">
+                    <thead>
+                      <tr className="bg-[#F5F5F7] border-b border-[#E5E5E7]">
+                        <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                          Type of Clearance
+                        </th>
+                        <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                          Fee
+                        </th>
+                        <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                          Validity
+                        </th>
+                        <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                          Description
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-[#E5E5E7]">
+                      {clearanceFees.map((item, index) => (
+                        <tr key={index} className="hover:bg-[#F5F5F7] transition-colors">
+                          <td className="px-6 py-4 whitespace-nowrap font-medium text-[#1D1D1F]">
+                            {item.type}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap font-semibold text-[#0066CC] text-lg">
+                            {item.fee}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-[#1D1D1F]">
+                            {item.validity}
+                          </td>
+                          <td className="px-6 py-4 text-gray-600">
+                            {item.description}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </Tabs.Content>
+
+            {/* Penalties Tab */}
+            <Tabs.Content value="penalties" className="space-y-12">
+              <div className="bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 rounded-2xl p-8">
+                <h2 className="text-2xl font-light text-red-900 mb-3">Penalties & Surcharges</h2>
+                <p className="text-red-800 leading-relaxed">Additional fees for late payments and violations</p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-[#E5E5E7] overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="min-w-full">
+                    <thead>
+                      <tr className="bg-[#F5F5F7] border-b border-[#E5E5E7]">
+                        <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                          Violation/Late Payment
+                        </th>
+                        <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                          Penalty/Surcharge
+                        </th>
+                        <th className="px-6 py-4 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">
+                          Description
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-[#E5E5E7]">
+                      {penaltyFees.map((item, index) => (
+                        <tr key={index} className="hover:bg-[#F5F5F7] transition-colors">
+                          <td className="px-6 py-4 whitespace-nowrap font-medium text-[#1D1D1F]">
+                            {item.violation}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap font-semibold text-red-600 text-lg">
+                            {item.penalty}
+                          </td>
+                          <td className="px-6 py-4 text-gray-600">
+                            {item.description}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-orange-200 rounded-2xl p-8">
+                <div className="flex items-start space-x-4">
+                  <AlertCircle className="w-8 h-8 text-orange-600 mt-1" />
+                  <div>
+                    <h4 className="text-xl font-light text-orange-900 mb-4">Important Notice</h4>
+                    <p className="text-orange-800 leading-relaxed">
+                      Penalties are in addition to the original permit fees. Repeat offenders may face higher penalties 
+                      and additional sanctions. Contact our office for payment arrangements or if you have questions 
+                      about penalties.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Tabs.Content>
+          </Tabs.Root>
+        </div>
 
         {/* Payment Methods */}
-        <div className="mt-12 bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Payment Methods</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-12 bg-white rounded-3xl shadow-sm border border-[#E5E5E7]/50 p-8 lg:p-10">
+          <h2 className="text-2xl font-light text-[#1D1D1F] mb-8">Payment Methods</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {paymentMethods.map((method, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-4">
-                <div className="flex items-start space-x-3 mb-3">
-                  <div className="flex-shrink-0 p-2 bg-[#0038A8] text-white rounded-lg">
+              <div key={index} className="bg-[#F5F5F7] rounded-2xl p-6">
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className="flex-shrink-0 p-3 bg-[#0066CC] text-white rounded-2xl">
                     {method.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900">{method.method}</h3>
-                    <p className="text-sm text-gray-600">{method.location}</p>
+                    <h3 className="font-medium text-[#1D1D1F] mb-1">{method.method}</h3>
+                    <p className="text-gray-600">{method.location}</p>
                   </div>
                 </div>
-                <div className="space-y-1 text-sm text-gray-600">
-                  <div><span className="font-medium">Hours:</span> {method.hours}</div>
-                  <div><span className="font-medium">Accepted:</span> {method.accepted}</div>
+                <div className="space-y-2 text-gray-600">
+                  <div><span className="font-medium text-[#1D1D1F]">Hours:</span> {method.hours}</div>
+                  <div><span className="font-medium text-[#1D1D1F]">Accepted:</span> {method.accepted}</div>
                 </div>
               </div>
             ))}
@@ -453,18 +469,36 @@ const FeeSchedule = () => {
         </div>
 
         {/* Important Notes */}
-        <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-          <div className="flex items-start space-x-3">
-            <Info className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+        <div className="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-3xl p-8 lg:p-10">
+          <div className="flex items-start space-x-4">
+            <Info className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
             <div>
-              <h3 className="font-semibold text-blue-900 mb-2">Important Notes</h3>
-              <ul className="space-y-2 text-blue-800 text-sm">
-                <li>• All fees are in Philippine Peso (₱) and subject to change without prior notice</li>
-                <li>• Fees must be paid before permit/certificate issuance</li>
-                <li>• Keep all official receipts as proof of payment</li>
-                <li>• Senior citizens and PWDs may be entitled to discounts as per law</li>
-                <li>• Refunds are not allowed except in cases of overpayment or duplicate payments</li>
-                <li>• For large-scale developments, additional fees may apply based on environmental impact assessment</li>
+              <h3 className="text-xl font-light text-blue-900 mb-6">Important Notes</h3>
+              <ul className="space-y-3 text-blue-800">
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                  <span>All fees are in Philippine Peso (₱) and subject to change without prior notice</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                  <span>Fees must be paid before permit/certificate issuance</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                  <span>Keep all official receipts as proof of payment</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                  <span>Senior citizens and PWDs may be entitled to discounts as per law</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                  <span>Refunds are not allowed except in cases of overpayment or duplicate payments</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                  <span>For large-scale developments, additional fees may apply based on environmental impact assessment</span>
+                </li>
               </ul>
             </div>
           </div>

@@ -149,35 +149,41 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact & Help</h1>
-        <p className="text-gray-600 mb-8">
-          Get in touch with us or find answers to frequently asked questions
-        </p>
+    <div className="min-h-screen bg-[#FBFBFD] py-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-4">
+            Contact & Help
+          </h1>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Get in touch with us or find answers to frequently asked questions
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-12">
             {/* Main Contact Info */}
-            <div className="bg-[#0038A8] text-white rounded-lg p-6">
-              <h2 className="text-2xl font-semibold mb-4">City of Meycauayan</h2>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5" />
-                  <span>MacArthur Highway, Meycauayan, Bulacan 3020</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5" />
-                  <span>(044) 123-4567</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5" />
-                  <span>permits@meycauayan.gov.ph</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5" />
+            <div className="bg-gradient-to-r from-[#0066CC] to-[#004499] text-white rounded-3xl p-8 lg:p-10">
+              <h2 className="text-3xl font-light mb-8">City of Meycauayan</h2>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <MapPin className="w-6 h-6 mt-1" />
                   <div>
+                    <p className="text-lg">MacArthur Highway, Meycauayan, Bulacan 3020</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Phone className="w-6 h-6" />
+                  <span className="text-lg">(044) 123-4567</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Mail className="w-6 h-6" />
+                  <span className="text-lg">permits@meycauayan.gov.ph</span>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <Clock className="w-6 h-6 mt-1" />
+                  <div className="text-lg leading-relaxed">
                     <div>Monday - Friday: 7:00 AM - 5:00 PM</div>
                     <div>Saturday: 8:00 AM - 12:00 PM</div>
                     <div>Sunday: Closed</div>
@@ -188,34 +194,37 @@ const Contact = () => {
 
             {/* Office Directory */}
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Office Directory</h2>
-              <div className="space-y-4">
+              <h2 className="text-2xl font-light text-[#1D1D1F] mb-8">Office Directory</h2>
+              <div className="space-y-6">
                 {offices.map((office, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between">
+                  <div key={index} className="bg-white border border-[#E5E5E7] rounded-2xl p-6 hover:shadow-sm transition-shadow">
+                    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 mb-1">{office.name}</h3>
-                        <p className="text-sm text-gray-600 mb-2">Head: {office.head}</p>
-                        <div className="space-y-1 text-sm text-gray-600">
-                          <div className="flex items-center space-x-2">
-                            <Phone size={14} />
+                        <h3 className="text-lg font-medium text-[#1D1D1F] mb-2">{office.name}</h3>
+                        <p className="text-gray-600 mb-4">Head: {office.head}</p>
+                        <div className="space-y-3 text-gray-600">
+                          <div className="flex items-center space-x-3">
+                            <Phone size={16} />
                             <span>{office.phone}</span>
                           </div>
-                          <div className="flex items-center space-x-2">
-                            <Mail size={14} />
+                          <div className="flex items-center space-x-3">
+                            <Mail size={16} />
                             <span>{office.email}</span>
                           </div>
-                          <div className="flex items-center space-x-2">
-                            <MapPin size={14} />
+                          <div className="flex items-center space-x-3">
+                            <MapPin size={16} />
                             <span>{office.location}</span>
                           </div>
                         </div>
                       </div>
-                      <div className="mt-3 md:mt-0 md:ml-4">
-                        <p className="text-sm font-medium text-gray-700 mb-1">Services:</p>
-                        <ul className="text-xs text-gray-600 space-y-0.5">
+                      <div className="mt-6 lg:mt-0 lg:ml-8 lg:min-w-[200px]">
+                        <p className="text-sm font-medium text-[#1D1D1F] mb-3">Services:</p>
+                        <ul className="text-sm text-gray-600 space-y-2">
                           {office.services.map((service, idx) => (
-                            <li key={idx}>• {service}</li>
+                            <li key={idx} className="flex items-center space-x-2">
+                              <div className="w-1.5 h-1.5 bg-[#0066CC] rounded-full"></div>
+                              <span>{service}</span>
+                            </li>
                           ))}
                         </ul>
                       </div>
@@ -226,141 +235,141 @@ const Contact = () => {
             </div>
 
             {/* Help Desk Form */}
-            <div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Help Desk</h2>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                <p className="text-gray-600 mb-4">
-                  Can't find what you're looking for? Send us a message and we'll get back to you within 24 hours.
-                </p>
-                
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={helpForm.name}
-                        onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0038A8]"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={helpForm.email}
-                        onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0038A8]"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={helpForm.phone}
-                        onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0038A8]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Category *
-                      </label>
-                      <select
-                        name="category"
-                        value={helpForm.category}
-                        onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0038A8]"
-                        required
-                      >
-                        <option value="">Select category</option>
-                        <option value="business-permit">Business Permits</option>
-                        <option value="building-permit">Building Permits</option>
-                        <option value="clearances">Clearances & Certificates</option>
-                        <option value="application-status">Application Status</option>
-                        <option value="payment">Payment Issues</option>
-                        <option value="technical">Technical Support</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                  </div>
-                  
+            <div className="bg-white rounded-3xl shadow-sm border border-[#E5E5E7]/50 p-8 lg:p-10">
+              <h2 className="text-2xl font-light text-[#1D1D1F] mb-6">Help Desk</h2>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Can't find what you're looking for? Send us a message and we'll get back to you within 24 hours.
+              </p>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Subject *
+                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
+                      Full Name *
                     </label>
                     <input
                       type="text"
-                      name="subject"
-                      value={helpForm.subject}
+                      name="name"
+                      value={helpForm.name}
                       onChange={handleInputChange}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0038A8]"
-                      placeholder="Brief description of your inquiry"
+                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
                       required
                     />
                   </div>
-                  
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Message *
+                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
+                      Email Address *
                     </label>
-                    <textarea
-                      name="message"
-                      value={helpForm.message}
+                    <input
+                      type="email"
+                      name="email"
+                      value={helpForm.email}
                       onChange={handleInputChange}
-                      rows={4}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0038A8]"
-                      placeholder="Please provide details about your inquiry or issue..."
+                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
                       required
                     />
                   </div>
-                  
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={helpForm.phone}
+                      onChange={handleInputChange}
+                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
+                      Category *
+                    </label>
+                    <select
+                      name="category"
+                      value={helpForm.category}
+                      onChange={handleInputChange}
+                      className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all appearance-none bg-white"
+                      required
+                    >
+                      <option value="">Select category</option>
+                      <option value="business-permit">Business Permits</option>
+                      <option value="building-permit">Building Permits</option>
+                      <option value="clearances">Clearances & Certificates</option>
+                      <option value="application-status">Application Status</option>
+                      <option value="payment">Payment Issues</option>
+                      <option value="technical">Technical Support</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
+                    Subject *
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={helpForm.subject}
+                    onChange={handleInputChange}
+                    className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all"
+                    placeholder="Brief description of your inquiry"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-[#1D1D1F] mb-3">
+                    Message *
+                  </label>
+                  <textarea
+                    name="message"
+                    value={helpForm.message}
+                    onChange={handleInputChange}
+                    rows={5}
+                    className="w-full border border-[#E5E5E7] rounded-2xl px-4 py-4 text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition-all resize-none"
+                    placeholder="Please provide details about your inquiry or issue..."
+                    required
+                  />
+                </div>
+                
+                <div className="flex justify-center pt-4">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`flex items-center space-x-2 px-6 py-3 rounded-md font-medium ${
+                    className={`flex items-center space-x-3 px-8 py-4 rounded-full font-medium text-lg transition-all shadow-sm ${
                       isSubmitting
-                        ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                        : 'bg-[#0038A8] text-white hover:bg-blue-700'
+                        ? 'bg-[#F5F5F7] text-gray-400 cursor-not-allowed'
+                        : 'bg-[#0066CC] text-white hover:bg-[#004499]'
                     }`}
                   >
                     <Send size={20} />
                     <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                   </button>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
 
           {/* FAQ Section */}
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-6">
+            <h2 className="text-2xl font-light text-[#1D1D1F] mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-8">
               {faqs.map((category, categoryIndex) => (
                 <div key={categoryIndex}>
-                  <h3 className="text-lg font-semibold text-[#0038A8] mb-3 flex items-center space-x-2">
+                  <h3 className="text-lg font-medium text-[#0066CC] mb-6 flex items-center space-x-3">
                     <HelpCircle size={20} />
                     <span>{category.category}</span>
                   </h3>
                   <div className="space-y-4">
                     {category.questions.map((faq, faqIndex) => (
-                      <div key={faqIndex} className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                        <h4 className="font-medium text-gray-900 mb-2">{faq.question}</h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                      <div key={faqIndex} className="bg-white border border-[#E5E5E7] rounded-2xl p-6">
+                        <h4 className="font-medium text-[#1D1D1F] mb-3">{faq.question}</h4>
+                        <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                       </div>
                     ))}
                   </div>
@@ -369,32 +378,56 @@ const Contact = () => {
             </div>
             
             {/* Quick Tips */}
-            <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <div className="flex items-start space-x-3">
-                <User className="w-5 h-5 text-blue-600 mt-0.5" />
+            <div className="mt-12 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6">
+              <div className="flex items-start space-x-4">
+                <User className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-blue-900 mb-2">Quick Tips</h4>
-                  <ul className="text-sm text-blue-800 space-y-1">
-                    <li>• Have your tracking number ready when calling</li>
-                    <li>• Check our requirements page before visiting</li>
-                    <li>• Bring original documents for verification</li>
-                    <li>• Visit early in the morning to avoid crowds</li>
-                    <li>• Keep copies of all submitted documents</li>
+                  <h4 className="font-medium text-blue-900 mb-4">Quick Tips</h4>
+                  <ul className="text-blue-800 space-y-2">
+                    <li className="flex items-center space-x-3">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span>Have your tracking number ready when calling</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span>Check our requirements page before visiting</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span>Bring original documents for verification</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span>Visit early in the morning to avoid crowds</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                      <span>Keep copies of all submitted documents</span>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
 
             {/* Emergency Contacts */}
-            <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
-              <div className="flex items-start space-x-3">
-                <MessageCircle className="w-5 h-5 text-red-600 mt-0.5" />
+            <div className="mt-6 bg-gradient-to-br from-red-50 to-orange-50 border border-red-200 rounded-2xl p-6">
+              <div className="flex items-start space-x-4">
+                <MessageCircle className="w-6 h-6 text-red-600 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-red-900 mb-2">Emergency Contacts</h4>
-                  <div className="text-sm text-red-800 space-y-1">
-                    <div>Fire Emergency: (044) 123-4567 ext. 911</div>
-                    <div>Medical Emergency: (044) 123-4567 ext. 912</div>
-                    <div>After-hours Hotline: 0917-123-4567</div>
+                  <h4 className="font-medium text-red-900 mb-4">Emergency Contacts</h4>
+                  <div className="text-red-800 space-y-2">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-1.5 h-1.5 bg-red-600 rounded-full"></div>
+                      <span>Fire Emergency: (044) 123-4567 ext. 911</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-1.5 h-1.5 bg-red-600 rounded-full"></div>
+                      <span>Medical Emergency: (044) 123-4567 ext. 912</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-1.5 h-1.5 bg-red-600 rounded-full"></div>
+                      <span>After-hours Hotline: 0917-123-4567</span>
+                    </div>
                   </div>
                 </div>
               </div>

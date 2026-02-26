@@ -371,27 +371,27 @@ const Requirements = () => {
   ];
 
   const renderRequirements = (requirements: any[]) => (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {requirements.map((req, index) => (
-        <div key={index} className="border border-gray-200 rounded-lg p-4">
-          <div className="flex items-start justify-between">
+        <div key={index} className="bg-white border border-[#E5E5E7] rounded-2xl p-6 hover:shadow-sm transition-all">
+          <div className="flex items-start justify-between mb-4">
             <div className="flex-1">
-              <div className="flex items-center space-x-2 mb-2">
-                <h3 className="font-semibold text-gray-900">{req.document}</h3>
+              <div className="flex items-center space-x-3 mb-3">
+                <h3 className="font-medium text-[#1D1D1F] text-lg">{req.document}</h3>
                 {req.required ? (
-                  <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full">
+                  <span className="text-xs bg-red-50 text-red-700 px-3 py-1 rounded-full border border-red-200 font-medium">
                     Required
                   </span>
                 ) : (
-                  <span className="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded-full">
+                  <span className="text-xs bg-gray-50 text-gray-600 px-3 py-1 rounded-full border border-gray-200 font-medium">
                     Optional
                   </span>
                 )}
               </div>
-              <p className="text-gray-600 text-sm mb-2">{req.description}</p>
+              <p className="text-gray-600 leading-relaxed mb-4">{req.description}</p>
               {req.note && (
-                <div className="flex items-start space-x-2 text-sm text-blue-800 bg-blue-50 p-2 rounded">
-                  <Info size={14} className="mt-0.5 flex-shrink-0" />
+                <div className="flex items-start space-x-3 text-sm text-blue-800 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-200">
+                  <Info size={16} className="mt-0.5 flex-shrink-0 text-blue-600" />
                   <span>{req.note}</span>
                 </div>
               )}
@@ -403,67 +403,73 @@ const Requirements = () => {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Document Requirements</h1>
-        <p className="text-gray-600 mb-8">
-          Complete list of required documents for each type of permit and clearance
-        </p>
+    <div className="min-h-screen bg-[#FBFBFD] py-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl lg:text-5xl font-extralight text-[#1D1D1F] mb-4">
+            Document Requirements
+          </h1>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Complete list of required documents for each type of permit and clearance
+          </p>
+        </div>
 
-        <Tabs.Root defaultValue="business" className="w-full">
-          {/* Tab Navigation */}
-          <Tabs.List className="flex flex-wrap gap-2 mb-8 p-1 bg-gray-100 rounded-lg">
+        <div className="bg-white rounded-3xl shadow-sm border border-[#E5E5E7]/50 p-8 lg:p-12">
+          <Tabs.Root defaultValue="business" className="w-full">
+            {/* Tab Navigation */}
+            <Tabs.List className="flex flex-wrap gap-3 mb-12 p-2 bg-[#F5F5F7] rounded-2xl">
+              {permitTypes.map((type) => (
+                <Tabs.Trigger
+                  key={type.id}
+                  value={type.id}
+                  className="flex items-center space-x-3 px-6 py-3 text-sm font-medium rounded-xl transition-all data-[state=active]:bg-white data-[state=active]:text-[#0066CC] data-[state=active]:shadow-sm text-gray-600 hover:text-[#1D1D1F] hover:bg-white/60"
+                >
+                  <span className="text-lg">{type.icon}</span>
+                  <span>{type.name}</span>
+                </Tabs.Trigger>
+              ))}
+            </Tabs.List>
+
+            {/* Tab Content */}
             {permitTypes.map((type) => (
-              <Tabs.Trigger
-                key={type.id}
-                value={type.id}
-                className="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md transition-colors data-[state=active]:bg-white data-[state=active]:text-[#0038A8] data-[state=active]:shadow-sm text-gray-600 hover:text-gray-900"
-              >
-                <span>{type.icon}</span>
-                <span>{type.name}</span>
-              </Tabs.Trigger>
-            ))}
-          </Tabs.List>
-
-          {/* Tab Content */}
-          {permitTypes.map((type) => (
-            <Tabs.Content key={type.id} value={type.id} className="space-y-6">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <h2 className="text-xl font-semibold text-blue-900 mb-2">{type.name}</h2>
-                <p className="text-blue-800">{type.description}</p>
-              </div>
-
-              {type.id === 'business' ? (
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">New Business Application</h3>
-                    {renderRequirements(requirementsByType.business.new)}
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Business Permit Renewal</h3>
-                    {renderRequirements(requirementsByType.business.renewal)}
-                  </div>
+              <Tabs.Content key={type.id} value={type.id} className="space-y-8">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-8">
+                  <h2 className="text-2xl font-light text-blue-900 mb-3">{type.name}</h2>
+                  <p className="text-blue-800 leading-relaxed">{type.description}</p>
                 </div>
-              ) : (
-                renderRequirements(requirementsByType[type.id as keyof typeof requirementsByType] as any[])
-              )}
-            </Tabs.Content>
-          ))}
-        </Tabs.Root>
+
+                {type.id === 'business' ? (
+                  <div className="space-y-12">
+                    <div>
+                      <h3 className="text-xl font-light text-[#1D1D1F] mb-8">New Business Application</h3>
+                      {renderRequirements(requirementsByType.business.new)}
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-xl font-light text-[#1D1D1F] mb-8">Business Permit Renewal</h3>
+                      {renderRequirements(requirementsByType.business.renewal)}
+                    </div>
+                  </div>
+                ) : (
+                  renderRequirements(requirementsByType[type.id as keyof typeof requirementsByType] as any[])
+                )}
+              </Tabs.Content>
+            ))}
+          </Tabs.Root>
+        </div>
 
         {/* File Upload Guidelines */}
-        <div className="mt-12 bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">File Upload Guidelines</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-12 bg-white rounded-3xl shadow-sm border border-[#E5E5E7]/50 p-8 lg:p-10">
+          <h2 className="text-2xl font-light text-[#1D1D1F] mb-8">File Upload Guidelines</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {fileGuidelines.map((guideline, index) => (
-              <div key={index} className="flex items-start space-x-3">
-                <div className="flex-shrink-0 p-2 bg-[#0038A8] text-white rounded-lg">
+              <div key={index} className="flex items-start space-x-4">
+                <div className="flex-shrink-0 p-3 bg-[#0066CC] text-white rounded-2xl">
                   {guideline.icon}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{guideline.title}</h3>
-                  <p className="text-gray-600 text-sm">{guideline.content}</p>
+                  <h3 className="font-medium text-[#1D1D1F] mb-2">{guideline.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{guideline.content}</p>
                 </div>
               </div>
             ))}
@@ -471,16 +477,16 @@ const Requirements = () => {
         </div>
 
         {/* Sample Forms */}
-        <div className="mt-8 bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-6">Sample Forms</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mt-12 bg-white rounded-3xl shadow-sm border border-[#E5E5E7]/50 p-8 lg:p-10">
+          <h2 className="text-2xl font-light text-[#1D1D1F] mb-8">Sample Forms</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {sampleForms.map((form, index) => (
-              <div key={index} className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-md">
+              <div key={index} className="flex items-center justify-between p-6 bg-[#F5F5F7] rounded-2xl hover:bg-gray-100 transition-colors">
                 <div className="flex-1">
-                  <h3 className="font-medium text-gray-900">{form.name}</h3>
-                  <p className="text-sm text-gray-600">{form.description}</p>
+                  <h3 className="font-medium text-[#1D1D1F] mb-1">{form.name}</h3>
+                  <p className="text-gray-600 leading-relaxed">{form.description}</p>
                 </div>
-                <button className="flex items-center space-x-2 text-[#0038A8] hover:text-blue-700 font-medium">
+                <button className="flex items-center space-x-2 text-[#0066CC] hover:text-[#004499] font-medium px-4 py-2 rounded-full border border-[#0066CC] hover:bg-[#0066CC] hover:text-white transition-all">
                   <Download size={16} />
                   <span>Download</span>
                 </button>
@@ -490,18 +496,36 @@ const Requirements = () => {
         </div>
 
         {/* Important Reminders */}
-        <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-          <div className="flex items-start space-x-3">
-            <AlertCircle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-0.5" />
+        <div className="mt-12 bg-gradient-to-br from-amber-50 to-orange-50 border border-orange-200 rounded-3xl p-8 lg:p-10">
+          <div className="flex items-start space-x-4">
+            <AlertCircle className="w-8 h-8 text-orange-600 flex-shrink-0 mt-1" />
             <div>
-              <h3 className="font-semibold text-yellow-900 mb-2">Important Reminders</h3>
-              <ul className="space-y-2 text-yellow-800 text-sm">
-                <li>• All documents must be clear, legible, and complete</li>
-                <li>• Original documents may be required for verification during inspection</li>
-                <li>• Expired documents will not be accepted - ensure all certificates are current</li>
-                <li>• Professional licenses (architect, engineer, etc.) must be valid and in good standing</li>
-                <li>• Processing may be delayed if required documents are missing or incomplete</li>
-                <li>• Contact our office if you have questions about specific requirements</li>
+              <h3 className="text-xl font-light text-orange-900 mb-6">Important Reminders</h3>
+              <ul className="space-y-3 text-orange-800">
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+                  <span>All documents must be clear, legible, and complete</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+                  <span>Original documents may be required for verification during inspection</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+                  <span>Expired documents will not be accepted - ensure all certificates are current</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+                  <span>Professional licenses (architect, engineer, etc.) must be valid and in good standing</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+                  <span>Processing may be delayed if required documents are missing or incomplete</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-orange-600 rounded-full flex-shrink-0"></div>
+                  <span>Contact our office if you have questions about specific requirements</span>
+                </li>
               </ul>
             </div>
           </div>
