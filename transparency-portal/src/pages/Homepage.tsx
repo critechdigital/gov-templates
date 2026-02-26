@@ -1,87 +1,137 @@
-import { Calendar, Users, Building, DollarSign, FileText, ExternalLink, TrendingUp } from 'lucide-react'
+import { Calendar, Users, Building, DollarSign, FileText, ExternalLink, TrendingUp, Activity, Zap, Target, Award, ArrowUpRight, Play } from 'lucide-react'
 
 const Homepage = () => {
   const quickStats = [
-    { label: 'Total Budget', value: '₱450M', subtext: '2025-2026', icon: DollarSign, color: 'blue' },
-    { label: 'Active Projects', value: '23', subtext: 'Ongoing', icon: Building, color: 'green' },
-    { label: 'Total Employees', value: '156', subtext: 'Government Staff', icon: Users, color: 'purple' },
-    { label: 'FOI Requests', value: '47', subtext: 'This Year', icon: FileText, color: 'orange' },
+    { label: 'Total Budget', value: '₱450M', subtext: '2025-2026 Fiscal Year', icon: DollarSign, color: 'blue', trend: '+12%' },
+    { label: 'Active Projects', value: '23', subtext: 'Infrastructure & Services', icon: Building, color: 'teal', trend: '+5 new' },
+    { label: 'Government Staff', value: '156', subtext: 'Regular Employees', icon: Users, color: 'purple', trend: 'Fully staffed' },
+    { label: 'FOI Requests', value: '47', subtext: 'Processed This Year', icon: FileText, color: 'orange', trend: '100% resolved' },
   ]
 
   const recentAnnouncements = [
     {
       date: '2026-02-20',
       title: 'Public Bidding for Barangay Health Center Construction',
-      description: 'Pre-bidding conference scheduled for March 5, 2026',
-      category: 'Procurement'
+      description: 'Pre-bidding conference scheduled for March 5, 2026. Total project cost: ₱15.8M',
+      category: 'Procurement',
+      priority: 'High',
+      status: 'Active'
     },
     {
       date: '2026-02-15',
-      title: 'Quarterly Financial Report Released',
-      description: 'Q4 2025 financial report now available for download',
-      category: 'Finance'
+      title: 'Q4 2025 Financial Report Released',
+      description: 'Comprehensive quarterly report showing 98% budget utilization efficiency',
+      category: 'Finance',
+      priority: 'Medium',
+      status: 'Published'
     },
     {
       date: '2026-02-10',
-      title: 'New Water System Project Approved',
-      description: 'Barangay San Vicente water distribution system project approved',
-      category: 'Projects'
+      title: 'Barangay San Vicente Water System Project Approved',
+      description: 'DepEd partnership for sustainable water distribution system implementation',
+      category: 'Projects',
+      priority: 'High',
+      status: 'Approved'
     },
     {
       date: '2026-02-05',
-      title: 'Annual Audit Report Published',
-      description: 'COA audit findings for 2025 now accessible',
-      category: 'Reports'
+      title: 'Annual COA Audit Report 2025 Published',
+      description: 'Clean audit results with zero significant findings. Full transparency achieved.',
+      category: 'Reports',
+      priority: 'Low',
+      status: 'Complete'
     }
   ]
 
+  const performanceMetrics = [
+    { label: 'Budget Utilization', value: '98%', icon: Target, color: 'blue' },
+    { label: 'Project Completion', value: '94%', icon: Activity, color: 'green' },
+    { label: 'Citizen Satisfaction', value: '92%', icon: Award, color: 'purple' },
+    { label: 'Digital Adoption', value: '87%', icon: Zap, color: 'teal' }
+  ]
+
+  const getPriorityColor = (priority: string) => {
+    switch (priority) {
+      case 'High': return 'red'
+      case 'Medium': return 'orange'
+      case 'Low': return 'green'
+      default: return 'blue'
+    }
+  }
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'Active': return 'blue'
+      case 'Published': return 'green'
+      case 'Approved': return 'purple'
+      case 'Complete': return 'teal'
+      default: return 'blue'
+    }
+  }
+
   return (
-    <div className="max-w-7xl mx-auto">
-      {/* Welcome Banner */}
-      <div className="bg-[#0078D4] rounded-lg shadow-md p-8 mb-8 text-white">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-4xl font-semibold mb-3">Welcome to Our Transparency Portal</h1>
-            <p className="text-xl text-blue-100 mb-4">
-              Municipality of San Rafael, Bulacan
+    <div className="max-w-none">
+      {/* Microsoft Hero Banner */}
+      <div className="ms-hero-banner mb-8">
+        <div className="flex items-center justify-between relative z-10">
+          <div className="max-w-4xl">
+            <h1 className="ms-text-hero mb-4">
+              Government Transparency 
+              <span className="block">Made Simple</span>
+            </h1>
+            <p className="text-xl text-white text-opacity-90 mb-6 leading-relaxed">
+              Municipality of San Rafael, Bulacan — Leading the way in transparent governance 
+              and public accountability through digital innovation.
             </p>
-            <p className="text-lg text-blue-100 max-w-2xl leading-relaxed">
-              Committed to transparent governance and public accountability. Access budget information, 
-              procurement activities, project updates, and government reports in compliance with the 
-              DILG Full Disclosure Policy.
-            </p>
+            <div className="flex items-center space-x-4">
+              <button className="ms-button px-8 py-4 text-base font-semibold">
+                <Play className="w-5 h-5 mr-2" />
+                Explore Portal
+              </button>
+              <button className="px-8 py-4 text-base font-semibold text-white border-2 border-white border-opacity-30 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all">
+                Download Reports
+                <ArrowUpRight className="w-5 h-5 ml-2" />
+              </button>
+            </div>
           </div>
-          <div className="hidden lg:block">
-            <div className="w-32 h-32 bg-white bg-opacity-20 rounded-lg flex items-center justify-center backdrop-blur-sm">
-              <div className="w-20 h-20 bg-white bg-opacity-30 rounded-lg flex items-center justify-center">
-                <span className="text-2xl font-semibold">LGU</span>
+          <div className="hidden xl:block relative">
+            <div className="w-48 h-48 bg-white bg-opacity-10 rounded-2xl backdrop-blur-lg border border-white border-opacity-20">
+              <div className="p-8 text-center text-white">
+                <div className="text-4xl font-bold mb-2">2025</div>
+                <div className="text-sm opacity-80">DILG Seal of</div>
+                <div className="text-lg font-semibold">Good Governance</div>
+                <div className="mt-4 w-16 h-16 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                  <Award className="w-8 h-8" />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      {/* Performance Dashboard - Azure Portal Style */}
+      <div className="ms-grid-dense ms-grid-4col mb-8">
         {quickStats.map((stat, index) => {
           const Icon = stat.icon
-          const colorClasses = {
-            blue: 'bg-[#0078D4] text-[#0078D4] bg-blue-50',
-            green: 'bg-green-500 text-green-600 bg-green-50',
-            purple: 'bg-[#8B5CF6] text-[#8B5CF6] bg-purple-50',
-            orange: 'bg-orange-500 text-orange-600 bg-orange-50'
-          }[stat.color] || 'bg-gray-500 text-gray-600 bg-gray-50'
-          
           return (
-            <div key={index} className="fluent-card p-6">
-              <div className="flex items-center">
-                <div className={`p-3 rounded-lg ${colorClasses.split(' ')[2]}`}>
-                  <Icon className={`w-6 h-6 ${colorClasses.split(' ')[1]}`} />
+            <div key={index} className={`fluent-card fluent-card-${stat.color} p-6 group cursor-pointer`}>
+              <div className="flex items-start justify-between mb-4">
+                <div className={`p-3 rounded-xl bg-opacity-10 ${
+                  stat.color === 'blue' ? 'bg-blue-500' :
+                  stat.color === 'teal' ? 'bg-teal-500' :
+                  stat.color === 'purple' ? 'bg-purple-500' :
+                  stat.color === 'orange' ? 'bg-orange-500' : 'bg-gray-500'
+                }`}>
+                  <Icon className={`w-6 h-6 ms-chart-${stat.color}`} />
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-2xl font-semibold text-[#323130]">{stat.value}</h3>
-                  <p className="text-gray-600 font-medium">{stat.label}</p>
-                  <p className="text-sm text-gray-500">{stat.subtext}</p>
+                <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-3xl font-bold text-gray-900">{stat.value}</h3>
+                <p className="font-semibold text-gray-700">{stat.label}</p>
+                <p className="text-sm text-gray-600">{stat.subtext}</p>
+                <div className={`ms-pill ms-pill-${stat.color} text-xs`}>
+                  {stat.trend}
                 </div>
               </div>
             </div>
@@ -89,103 +139,167 @@ const Homepage = () => {
         })}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Recent Announcements */}
-        <div className="lg:col-span-2">
-          <div className="fluent-card">
-            <div className="px-6 py-5 border-b border-[#EDEBE9]">
-              <h2 className="text-xl font-semibold text-[#323130] flex items-center">
-                <Calendar className="w-5 h-5 mr-2 text-[#0078D4]" />
+      {/* Command Bar */}
+      <div className="ms-command-bar mb-6">
+        <span className="text-sm font-semibold text-gray-700">Quick Actions:</span>
+        <button className="ms-command-button">
+          <DollarSign className="w-4 h-4" />
+          View Budget
+        </button>
+        <button className="ms-command-button">
+          <FileText className="w-4 h-4" />
+          Submit FOI
+        </button>
+        <button className="ms-command-button">
+          <Building className="w-4 h-4" />
+          Track Projects
+        </button>
+        <button className="ms-command-button">
+          <TrendingUp className="w-4 h-4" />
+          View Analytics
+        </button>
+      </div>
+
+      <div className="ms-grid-dense" style={{ gridTemplateColumns: '2fr 1fr' }}>
+        {/* Recent Announcements - Power BI Style */}
+        <div className="fluent-card">
+          <div className="px-6 py-5 border-b border-[#EDEBE9] bg-gradient-to-r from-blue-50 to-purple-50">
+            <div className="flex items-center justify-between">
+              <h2 className="ms-text-subtitle flex items-center">
+                <Calendar className="w-5 h-5 mr-3 text-[#0078D4]" />
                 Recent Announcements
               </h2>
+              <div className="ms-pill ms-pill-blue">
+                {recentAnnouncements.length} Active
+              </div>
             </div>
-            <div className="p-6">
-              <div className="space-y-5">
-                {recentAnnouncements.map((announcement, index) => (
-                  <div key={index} className="border-l-4 border-[#0078D4] pl-4 py-2">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center px-3 py-1 rounded-lg text-xs font-medium bg-blue-50 text-[#0078D4]">
+          </div>
+          <div className="p-6">
+            <div className="space-y-6">
+              {recentAnnouncements.map((announcement, index) => (
+                <div key={index} className={`fluent-card fluent-card-${getPriorityColor(announcement.priority)} p-5 hover:shadow-lg transition-all cursor-pointer group`}>
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center space-x-3">
+                      <div className={`ms-pill ms-pill-${getPriorityColor(announcement.priority)}`}>
                         {announcement.category}
-                      </span>
-                      <span className="text-sm text-gray-500">{announcement.date}</span>
+                      </div>
+                      <div className={`ms-pill ms-pill-${getStatusColor(announcement.status)}`}>
+                        {announcement.status}
+                      </div>
                     </div>
-                    <h3 className="font-semibold text-[#323130] mt-2">{announcement.title}</h3>
-                    <p className="text-gray-600 text-sm mt-1">{announcement.description}</p>
+                    <div className="text-sm text-gray-500 font-mono">{announcement.date}</div>
                   </div>
-                ))}
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#EDEBE9]">
-                <button className="text-[#0078D4] hover:text-[#106EBE] font-medium text-sm flex items-center transition-colors">
-                  View All Announcements
-                  <ExternalLink className="w-4 h-4 ml-1" />
-                </button>
-              </div>
+                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-[#0078D4] transition-colors">
+                    {announcement.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{announcement.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 pt-4 border-t border-[#EDEBE9]">
+              <button className="ms-button w-full">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                View All Announcements
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Quick Links & Transparency Seal */}
+        {/* Performance & Compliance */}
         <div className="space-y-6">
-          {/* Transparency Compliance */}
-          <div className="fluent-card">
-            <div className="px-6 py-5 border-b border-[#EDEBE9]">
-              <h2 className="text-xl font-semibold text-[#323130]">Transparency Compliance</h2>
+          {/* Performance Metrics */}
+          <div className="fluent-card fluent-card-purple">
+            <div className="px-6 py-5 border-b border-[#EDEBE9] bg-gradient-to-r from-purple-50 to-blue-50">
+              <h2 className="ms-text-subtitle">Performance Metrics</h2>
             </div>
             <div className="p-6">
-              <div className="flex items-center space-x-3 mb-5">
-                <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-green-600" />
+              <div className="space-y-4">
+                {performanceMetrics.map((metric, index) => {
+                  const Icon = metric.icon
+                  return (
+                    <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                      <div className="flex items-center space-x-3">
+                        <div className={`p-2 rounded-lg bg-opacity-10 ${
+                          metric.color === 'blue' ? 'bg-blue-500' :
+                          metric.color === 'green' ? 'bg-green-500' :
+                          metric.color === 'purple' ? 'bg-purple-500' :
+                          metric.color === 'teal' ? 'bg-teal-500' : 'bg-gray-500'
+                        }`}>
+                          <Icon className={`w-4 h-4 ms-chart-${metric.color}`} />
+                        </div>
+                        <span className="font-medium text-gray-700">{metric.label}</span>
+                      </div>
+                      <div className="text-xl font-bold text-gray-900">{metric.value}</div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Transparency Compliance */}
+          <div className="fluent-card fluent-card-green">
+            <div className="px-6 py-5 border-b border-[#EDEBE9] bg-gradient-to-r from-green-50 to-teal-50">
+              <h2 className="ms-text-subtitle">Compliance Status</h2>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center">
+                  <TrendingUp className="w-8 h-8 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#323130]">DILG Seal of Good Local Governance</h3>
-                  <p className="text-sm text-gray-600">Certified 2025</p>
+                  <h3 className="font-bold text-gray-900">DILG Certified</h3>
+                  <p className="text-sm text-gray-600">Seal of Good Local Governance 2025</p>
                 </div>
               </div>
-              <div className="space-y-4">
-                <div className="flex justify-between p-3 bg-[#FAF9F8] rounded-lg">
-                  <span className="text-sm text-gray-600">Budget Transparency</span>
-                  <span className="text-sm font-medium text-green-600">Compliant</span>
-                </div>
-                <div className="flex justify-between p-3 bg-[#FAF9F8] rounded-lg">
-                  <span className="text-sm text-gray-600">Procurement Disclosure</span>
-                  <span className="text-sm font-medium text-green-600">Compliant</span>
-                </div>
-                <div className="flex justify-between p-3 bg-[#FAF9F8] rounded-lg">
-                  <span className="text-sm text-gray-600">Full Disclosure Policy</span>
-                  <span className="text-sm font-medium text-green-600">Compliant</span>
-                </div>
+              <div className="space-y-3">
+                {[
+                  { label: 'Budget Transparency', status: 'Compliant' },
+                  { label: 'Procurement Disclosure', status: 'Compliant' },
+                  { label: 'Full Disclosure Policy', status: 'Compliant' },
+                  { label: 'Citizen Charter', status: 'Updated' }
+                ].map((item, index) => (
+                  <div key={index} className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                    <span className="text-sm font-medium text-gray-700">{item.label}</span>
+                    <div className="ms-pill ms-pill-green">
+                      {item.status}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Quick Access */}
-          <div className="fluent-card">
-            <div className="px-6 py-5 border-b border-[#EDEBE9]">
-              <h2 className="text-xl font-semibold text-[#323130]">Quick Access</h2>
+          <div className="fluent-card fluent-card-teal">
+            <div className="px-6 py-5 border-b border-[#EDEBE9] bg-gradient-to-r from-teal-50 to-blue-50">
+              <h2 className="ms-text-subtitle">Quick Access</h2>
             </div>
             <div className="p-6">
               <div className="space-y-3">
-                <button className="w-full text-left px-4 py-3 rounded-lg bg-[#FAF9F8] hover:bg-[#F3F2F1] transition-colors ms-focus">
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium text-[#323130]">2025-2026 Annual Budget</span>
-                    <ExternalLink className="w-4 h-4 text-gray-500" />
-                  </div>
-                  <span className="text-sm text-gray-600">₱450M Total Budget</span>
-                </button>
-                <button className="w-full text-left px-4 py-3 rounded-lg bg-[#FAF9F8] hover:bg-[#F3F2F1] transition-colors ms-focus">
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium text-[#323130]">Submit FOI Request</span>
-                    <ExternalLink className="w-4 h-4 text-gray-500" />
-                  </div>
-                  <span className="text-sm text-gray-600">Freedom of Information</span>
-                </button>
-                <button className="w-full text-left px-4 py-3 rounded-lg bg-[#FAF9F8] hover:bg-[#F3F2F1] transition-colors ms-focus">
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium text-[#323130]">Project Status Tracker</span>
-                    <ExternalLink className="w-4 h-4 text-gray-500" />
-                  </div>
-                  <span className="text-sm text-gray-600">23 Active Projects</span>
-                </button>
+                {[
+                  { title: '2025-2026 Annual Budget', subtitle: '₱450M Total Allocation', icon: DollarSign },
+                  { title: 'Submit FOI Request', subtitle: 'Freedom of Information Portal', icon: FileText },
+                  { title: 'Project Status Dashboard', subtitle: '23 Active Infrastructure Projects', icon: Building }
+                ].map((item, index) => {
+                  const Icon = item.icon
+                  return (
+                    <button key={index} className="w-full text-left p-4 rounded-xl bg-teal-50 hover:bg-teal-100 border border-teal-200 transition-all group">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-teal-100 rounded-lg">
+                            <Icon className="w-4 h-4 text-teal-600" />
+                          </div>
+                          <div>
+                            <div className="font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">{item.title}</div>
+                            <div className="text-sm text-gray-600">{item.subtitle}</div>
+                          </div>
+                        </div>
+                        <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-teal-600 transition-colors" />
+                      </div>
+                    </button>
+                  )
+                })}
               </div>
             </div>
           </div>
