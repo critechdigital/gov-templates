@@ -1,5 +1,5 @@
 {
-  "buildCommand": "powershell -File build.ps1",
+  "buildCommand": "node build.mjs",
   "outputDirectory": "dist",
   "installCommand": "cd transparency-portal && npm install && cd ../permit-licensing && npm install && cd ../citizen-services && npm install && cd ../legislative-tracker && npm install && cd ../procurement-portal && npm install",
   "rewrites": [
