@@ -167,20 +167,20 @@ export default function BidOpportunities() {
           </div>
         ) : (
           filteredOpportunities.map((bid) => (
-            <div key={bid.id} className="bg-[#161B22] rounded-none border border-[#30363D] p-6 hover:border-[#4ADE80]/50 transition-colors terminal-glow">
+            <div key={bid.id} className="bg-white rounded-lg border border-gray-200 p-6 hover:border-[#0071DC]/30 hover:shadow-sm transition-all corporate-card">
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h3 className="text-lg font-semibold text-[#E6EDF3] mb-1">
+                      <h3 className="text-lg font-semibold text-[#2E2F32] mb-1">
                         <Link 
                           to={`/opportunities/${bid.id}`}
-                          className="hover:text-[#4ADE80] transition-colors"
+                          className="hover:text-[#0071DC] transition-colors"
                         >
                           {bid.title}
                         </Link>
                       </h3>
-                      <p className="text-sm text-[#8B949E] font-mono">REF: {bid.referenceNumber}</p>
+                      <p className="text-sm text-[#74767C]">REF: {bid.referenceNumber}</p>
                     </div>
                     <span className={`px-3 py-1 rounded-none text-sm font-mono font-medium whitespace-nowrap status-badge ${getStatusColor(bid.status)}`}>
                       {bid.status.toUpperCase()}
@@ -188,41 +188,41 @@ export default function BidOpportunities() {
                   </div>
 
                   {bid.description && (
-                    <p className="text-[#8B949E] text-sm mb-4 line-clamp-2">{bid.description}</p>
+                    <p className="text-[#74767C] text-sm mb-4 line-clamp-2">{bid.description}</p>
                   )}
 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                     <div className="flex items-center gap-2">
-                      <DollarSign className="w-4 h-4 text-[#4ADE80]" />
+                      <DollarSign className="w-4 h-4 text-[#0071DC]" />
                       <div>
-                        <span className="text-[#8B949E] font-mono">ABC:</span>
-                        <div className="font-mono font-semibold text-[#E6EDF3]">
+                        <span className="text-[#74767C]">ABC:</span>
+                        <div className="font-semibold text-[#2E2F32]">
                           {formatCurrency(bid.approvedBudget)}
                         </div>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <FileText className="w-4 h-4 text-[#22D3EE]" />
+                      <FileText className="w-4 h-4 text-[#0071DC]" />
                       <div>
-                        <span className="text-[#8B949E] font-mono">CATEGORY:</span>
-                        <div className="font-mono font-semibold text-[#E6EDF3]">{bid.category}</div>
+                        <span className="text-[#74767C]">Category:</span>
+                        <div className="font-semibold text-[#2E2F32]">{bid.category}</div>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Filter className="w-4 h-4 text-[#FBBF24]" />
+                      <Filter className="w-4 h-4 text-[#0071DC]" />
                       <div>
-                        <span className="text-[#8B949E] font-mono">MODE:</span>
-                        <div className="font-mono font-semibold text-[#E6EDF3]">{bid.procurementMode}</div>
+                        <span className="text-[#74767C]">Mode:</span>
+                        <div className="font-semibold text-[#2E2F32]">{bid.procurementMode}</div>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-[#EF4444]" />
+                      <Calendar className="w-4 h-4 text-[#FFC220]" />
                       <div>
-                        <span className="text-[#8B949E] font-mono">DEADLINE:</span>
-                        <div className="font-mono font-semibold text-[#E6EDF3]">
+                        <span className="text-[#74767C]">Deadline:</span>
+                        <div className="font-semibold text-[#2E2F32]">
                           {formatDate(bid.submissionDeadline)}
                         </div>
                       </div>
@@ -230,11 +230,11 @@ export default function BidOpportunities() {
                   </div>
 
                   {bid.preBidDate && (
-                    <div className="mt-3 p-3 bg-[#0D1117] border border-[#22D3EE] rounded-none">
+                    <div className="mt-3 p-3 bg-[#EFF6FF] border border-[#0071DC] rounded-lg">
                       <div className="flex items-center gap-2 text-sm">
-                        <Calendar className="w-4 h-4 text-[#22D3EE]" />
-                        <span className="font-mono font-medium text-[#22D3EE]">
-                          PRE_BID_CONFERENCE: {formatDate(bid.preBidDate)}
+                        <Calendar className="w-4 h-4 text-[#0071DC]" />
+                        <span className="font-medium text-[#0071DC]">
+                          Pre-Bid Conference: {formatDate(bid.preBidDate)}
                         </span>
                       </div>
                     </div>
@@ -244,15 +244,15 @@ export default function BidOpportunities() {
                 <div className="lg:text-right">
                   {bid.status === 'Open' && (
                     <div className="mb-3">
-                      <div className="flex items-center gap-1 text-[#FBBF24] mb-1">
+                      <div className="flex items-center gap-1 text-[#FFC220] mb-1">
                         <Clock className="w-4 h-4" />
-                        <span className="text-sm font-mono font-medium">
-                          {getDaysUntilDeadline(bid.submissionDeadline)}D_REMAINING
+                        <span className="text-sm font-medium">
+                          {getDaysUntilDeadline(bid.submissionDeadline)} days remaining
                         </span>
                       </div>
-                      <div className="w-full lg:w-48 bg-[#30363D] rounded-none h-2">
+                      <div className="w-full lg:w-48 bg-gray-200 rounded-lg h-2">
                         <div 
-                          className="bg-[#FBBF24] h-2 rounded-none transition-all duration-300"
+                          className="bg-[#FFC220] h-2 rounded-lg transition-all duration-300"
                           style={{ 
                             width: `${Math.max(0, Math.min(100, (getDaysUntilDeadline(bid.submissionDeadline) / 30) * 100))}%`
                           }}
@@ -262,9 +262,9 @@ export default function BidOpportunities() {
                   )}
                   <Link
                     to={`/opportunities/${bid.id}`}
-                    className="inline-block bg-transparent border-2 border-[#4ADE80] text-[#4ADE80] px-4 py-2 rounded-none text-sm font-mono font-medium hover:bg-[#4ADE80] hover:text-[#0D1117] transition-colors"
+                    className="inline-block bg-[#0071DC] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#005bb5] transition-colors"
                   >
-                    ./view_details.sh
+                    View Details
                   </Link>
                 </div>
               </div>
@@ -274,35 +274,35 @@ export default function BidOpportunities() {
       </div>
 
       {/* Summary Stats */}
-      <div className="bg-[#161B22] rounded-none border border-[#30363D] p-6 terminal-glow">
-        <h3 className="font-mono font-semibold text-[#E6EDF3] mb-4">[SUMMARY_STATISTICS]</h3>
+      <div className="bg-white rounded-lg border border-gray-200 p-6 corporate-card">
+        <h3 className="font-semibold text-[#2E2F32] mb-4">Summary Statistics</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <div>
-            <div className="text-2xl font-mono font-bold text-[#4ADE80]">
+            <div className="text-2xl font-bold text-[#0071DC]">
               {filteredOpportunities.filter(bid => bid.status === 'Open').length}
             </div>
-            <div className="text-sm text-[#8B949E] font-mono">OPEN_OPPORTUNITIES</div>
+            <div className="text-sm text-[#74767C]">Open Opportunities</div>
           </div>
           <div>
-            <div className="text-2xl font-mono font-bold text-[#22D3EE]">
+            <div className="text-2xl font-bold text-[#2A8703]">
               {formatCurrency(filteredOpportunities
                 .filter(bid => bid.status === 'Open')
                 .reduce((sum, bid) => sum + bid.approvedBudget, 0)
               )}
             </div>
-            <div className="text-sm text-[#8B949E] font-mono">ACTIVE_BUDGET</div>
+            <div className="text-sm text-[#74767C]">Active Budget</div>
           </div>
           <div>
-            <div className="text-2xl font-mono font-bold text-[#FBBF24]">
+            <div className="text-2xl font-bold text-[#FFC220]">
               {filteredOpportunities.filter(bid => bid.category === 'Infrastructure').length}
             </div>
-            <div className="text-sm text-[#8B949E] font-mono">INFRASTRUCTURE_PROJECTS</div>
+            <div className="text-sm text-[#74767C]">Infrastructure Projects</div>
           </div>
           <div>
-            <div className="text-2xl font-mono font-bold text-[#EF4444]">
+            <div className="text-2xl font-bold text-[#74767C]">
               {filteredOpportunities.filter(bid => bid.procurementMode === 'Public Bidding').length}
             </div>
-            <div className="text-sm text-[#8B949E] font-mono">PUBLIC_BIDDING</div>
+            <div className="text-sm text-[#74767C]">Public Bidding</div>
           </div>
         </div>
       </div>

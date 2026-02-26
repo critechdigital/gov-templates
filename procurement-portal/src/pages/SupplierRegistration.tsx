@@ -154,13 +154,13 @@ export default function SupplierRegistration() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       {/* Page Header */}
-      <div className="bg-[#161B22] rounded-none border border-[#30363D] p-6 terminal-glow terminal-border">
+      <div className="bg-white rounded-lg border border-gray-200 p-6 corporate-card corporate-card-primary">
         <div className="flex items-center gap-3 mb-4">
-          <UserPlus className="w-6 h-6 text-[#4ADE80]" />
-          <h1 className="text-2xl font-mono font-bold text-[#E6EDF3] terminal-breadcrumb">supplier_registration</h1>
+          <UserPlus className="w-6 h-6 text-[#0071DC]" />
+          <h1 className="text-2xl font-semibold text-[#2E2F32]">Supplier Registration</h1>
         </div>
-        <p className="text-[#8B949E]">
-          [SYSTEM] Register as a supplier for the Provincial Government of Bulacan. Complete all required 
+        <p className="text-[#74767C]">
+          Register as a supplier for the Provincial Government of Bulacan. Complete all required 
           information to be eligible for bidding opportunities and procurement activities.
         </p>
       </div>
