@@ -1,0 +1,12 @@
+{
+  "buildCommand": "powershell -File build.ps1",
+  "outputDirectory": "dist",
+  "installCommand": "cd transparency-portal && npm install && cd ../permit-licensing && npm install && cd ../citizen-services && npm install && cd ../legislative-tracker && npm install && cd ../procurement-portal && npm install",
+  "rewrites": [
+    { "source": "/transparency-portal/(.*)", "destination": "/transparency-portal/index.html" },
+    { "source": "/permit-licensing/(.*)", "destination": "/permit-licensing/index.html" },
+    { "source": "/citizen-services/(.*)", "destination": "/citizen-services/index.html" },
+    { "source": "/legislative-tracker/(.*)", "destination": "/legislative-tracker/index.html" },
+    { "source": "/procurement-portal/(.*)", "destination": "/procurement-portal/index.html" }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "critech-gov-templates",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "powershell -File build.ps1",
+    "build:all": "powershell -File build.ps1"
+  }
+}
