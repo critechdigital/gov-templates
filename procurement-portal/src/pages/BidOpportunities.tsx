@@ -160,10 +160,10 @@ export default function BidOpportunities() {
       {/* Results */}
       <div className="space-y-4">
         {filteredOpportunities.length === 0 ? (
-          <div className="bg-[#161B22] rounded-none border border-[#30363D] p-12 text-center terminal-glow">
-            <FileText className="w-12 h-12 text-[#8B949E] mx-auto mb-4" />
-            <h3 className="text-lg font-mono font-medium text-[#E6EDF3] mb-2">[ERROR] NO_OPPORTUNITIES_FOUND</h3>
-            <p className="text-[#8B949E] font-mono">Adjust filters or search parameters and retry.</p>
+          <div className="bg-white rounded-lg border border-gray-200 p-12 text-center corporate-card">
+            <FileText className="w-12 h-12 text-[#74767C] mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-[#2E2F32] mb-2">No Opportunities Found</h3>
+            <p className="text-[#74767C]">Adjust filters or search parameters and retry.</p>
           </div>
         ) : (
           filteredOpportunities.map((bid) => (
