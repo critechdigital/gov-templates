@@ -28,7 +28,7 @@ export default function Layout({ children }: LayoutProps) {
                 <Terminal className="w-8 h-8 text-[#4ADE80]" />
               </div>
               <div>
-                <h1 className="text-xl font-mono font-bold text-[#4ADE80]">>_ PROVINCIAL_GOVERNMENT_BULACAN</h1>
+                <h1 className="text-xl font-mono font-bold text-[#4ADE80]">{">"}_ PROVINCIAL_GOVERNMENT_BULACAN</h1>
                 <p className="text-[#8B949E] text-sm font-mono">public_bidding_procurement_portal v2.1.0</p>
               </div>
             </div>

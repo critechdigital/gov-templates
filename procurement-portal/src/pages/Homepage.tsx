@@ -19,7 +19,7 @@ export default function Homepage() {
       <section className="bg-gradient-to-r from-[#161B22] to-[#0D1117] text-[#E6EDF3] rounded-none p-8 terminal-glow terminal-border">
         <div className="max-w-4xl">
           <h1 className="text-3xl font-mono font-bold mb-4 text-[#4ADE80]">
-            >_ WELCOME TO BULACAN_PROCUREMENT_TERMINAL
+            {">"}_ WELCOME TO BULACAN_PROCUREMENT_TERMINAL
           </h1>
           <p className="text-lg mb-6 text-[#8B949E]">
             [SYSTEM_MESSAGE] Gateway to transparent government procurement initialized. 
