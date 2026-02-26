@@ -13,12 +13,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const ribbonTabs = [
     { path: '/', label: 'Home', icon: Home, color: 'blue' },
-    { path: '/budget', label: 'Budget', icon: DollarSign, color: 'purple' },
-    { path: '/procurement', label: 'Procurement', icon: ShoppingCart, color: 'teal' },
-    { path: '/projects', label: 'Projects', icon: Building, color: 'orange' },
-    { path: '/officials', label: 'Officials', icon: Users, color: 'green' },
-    { path: '/foi', label: 'FOI', icon: FileText, color: 'blue' },
-    { path: '/reports', label: 'Reports', icon: BarChart3, color: 'purple' },
+    { path: '/budget', label: 'Budget', icon: DollarSign, color: 'blue' },
+    { path: '/procurement', label: 'Procurement', icon: ShoppingCart, color: 'blue' },
+    { path: '/projects', label: 'Projects', icon: Building, color: 'blue' },
+    { path: '/officials', label: 'Officials', icon: Users, color: 'blue' },
+    { path: '/foi', label: 'FOI', icon: FileText, color: 'teal' },
+    { path: '/reports', label: 'Reports', icon: BarChart3, color: 'blue' },
   ]
 
   const sidebarItems = [
@@ -32,11 +32,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   ]
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA]">
+    <div className="min-h-screen bg-[#F3F2F1]">
       {/* Microsoft Header */}
       <header className="ms-header-blur sticky top-0 z-40">
         {/* Top Brand Bar */}
-        <div className="h-12 bg-gradient-to-r from-[#5B2D8E] to-[#0078D4] flex items-center px-6">
+        <div className="h-12 bg-gradient-to-r from-[#1B1A19] to-[#0078D4] flex items-center px-6">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-white bg-opacity-20 rounded-lg flex items-center justify-center backdrop-blur-sm">
               <Shield className="w-5 h-5 text-white" />
@@ -95,7 +95,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <div className="flex">
         {/* Sidebar - Teams/Outlook Style */}
-        <aside className={`hidden lg:flex flex-col bg-[#F8F9FA] border-r border-[#EDEBE9] transition-all duration-300 ${
+        <aside className={`hidden lg:flex flex-col bg-[#F3F2F1] border-r border-[#EDEBE9] transition-all duration-300 ${
           isSidebarCollapsed ? 'w-16' : 'w-80'
         } fixed left-0 top-24 bottom-0 z-30`}>
           
@@ -157,7 +157,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {isMenuOpen && (
           <div className="lg:hidden fixed inset-0 z-40 bg-black bg-opacity-50" onClick={() => setIsMenuOpen(false)}>
             <nav className="fixed inset-y-0 left-0 z-50 w-80 bg-white shadow-xl">
-              <div className="p-6 border-b border-[#EDEBE9] bg-gradient-to-r from-[#5B2D8E] to-[#0078D4]">
+              <div className="p-6 border-b border-[#EDEBE9] bg-gradient-to-r from-[#1B1A19] to-[#0078D4]">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">

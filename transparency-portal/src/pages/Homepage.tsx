@@ -3,9 +3,9 @@ import { Calendar, Users, Building, DollarSign, FileText, ExternalLink, Trending
 const Homepage = () => {
   const quickStats = [
     { label: 'Total Budget', value: '₱450M', subtext: '2025-2026 Fiscal Year', icon: DollarSign, color: 'blue', trend: '+12%' },
-    { label: 'Active Projects', value: '23', subtext: 'Infrastructure & Services', icon: Building, color: 'teal', trend: '+5 new' },
-    { label: 'Government Staff', value: '156', subtext: 'Regular Employees', icon: Users, color: 'purple', trend: 'Fully staffed' },
-    { label: 'FOI Requests', value: '47', subtext: 'Processed This Year', icon: FileText, color: 'orange', trend: '100% resolved' },
+    { label: 'Active Projects', value: '23', subtext: 'Infrastructure & Services', icon: Building, color: 'blue', trend: '+5 new' },
+    { label: 'Government Staff', value: '156', subtext: 'Regular Employees', icon: Users, color: 'blue', trend: 'Fully staffed' },
+    { label: 'FOI Requests', value: '47', subtext: 'Processed This Year', icon: FileText, color: 'teal', trend: '100% resolved' },
   ]
 
   const recentAnnouncements = [
@@ -45,8 +45,8 @@ const Homepage = () => {
 
   const performanceMetrics = [
     { label: 'Budget Utilization', value: '98%', icon: Target, color: 'blue' },
-    { label: 'Project Completion', value: '94%', icon: Activity, color: 'green' },
-    { label: 'Citizen Satisfaction', value: '92%', icon: Award, color: 'purple' },
+    { label: 'Project Completion', value: '94%', icon: Activity, color: 'blue' },
+    { label: 'Citizen Satisfaction', value: '92%', icon: Award, color: 'blue' },
     { label: 'Digital Adoption', value: '87%', icon: Zap, color: 'teal' }
   ]
 
@@ -127,9 +127,9 @@ const Homepage = () => {
                 <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-3xl font-bold text-gray-900">{stat.value}</h3>
-                <p className="font-semibold text-gray-700">{stat.label}</p>
-                <p className="text-sm text-gray-600">{stat.subtext}</p>
+                <h3 className="text-3xl font-bold text-[#201F1E]">{stat.value}</h3>
+                <p className="font-semibold text-[#201F1E]">{stat.label}</p>
+                <p className="text-sm text-[#323130]">{stat.subtext}</p>
                 <div className={`ms-pill ms-pill-${stat.color} text-xs`}>
                   {stat.trend}
                 </div>
@@ -141,7 +141,7 @@ const Homepage = () => {
 
       {/* Command Bar */}
       <div className="ms-command-bar mb-6">
-        <span className="text-sm font-semibold text-gray-700">Quick Actions:</span>
+        <span className="text-sm font-semibold text-[#323130]">Quick Actions:</span>
         <button className="ms-command-button">
           <DollarSign className="w-4 h-4" />
           View Budget
@@ -163,7 +163,7 @@ const Homepage = () => {
       <div className="ms-grid-dense" style={{ gridTemplateColumns: '2fr 1fr' }}>
         {/* Recent Announcements - Power BI Style */}
         <div className="fluent-card">
-          <div className="px-6 py-5 border-b border-[#EDEBE9] bg-gradient-to-r from-blue-50 to-purple-50">
+          <div className="px-6 py-5 border-b border-[#EDEBE9]">
             <div className="flex items-center justify-between">
               <h2 className="ms-text-subtitle flex items-center">
                 <Calendar className="w-5 h-5 mr-3 text-[#0078D4]" />
@@ -189,10 +189,10 @@ const Homepage = () => {
                     </div>
                     <div className="text-sm text-gray-500 font-mono">{announcement.date}</div>
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-[#0078D4] transition-colors">
+                  <h3 className="font-bold text-[#201F1E] mb-2 group-hover:text-[#0078D4] transition-colors">
                     {announcement.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{announcement.description}</p>
+                  <p className="text-[#323130] text-sm leading-relaxed">{announcement.description}</p>
                 </div>
               ))}
             </div>
@@ -208,8 +208,8 @@ const Homepage = () => {
         {/* Performance & Compliance */}
         <div className="space-y-6">
           {/* Performance Metrics */}
-          <div className="fluent-card fluent-card-purple">
-            <div className="px-6 py-5 border-b border-[#EDEBE9] bg-gradient-to-r from-purple-50 to-blue-50">
+          <div className="fluent-card fluent-card-blue">
+            <div className="px-6 py-5 border-b border-[#EDEBE9]">
               <h2 className="ms-text-subtitle">Performance Metrics</h2>
             </div>
             <div className="p-6">
@@ -227,9 +227,9 @@ const Homepage = () => {
                         }`}>
                           <Icon className={`w-4 h-4 ms-chart-${metric.color}`} />
                         </div>
-                        <span className="font-medium text-gray-700">{metric.label}</span>
+                        <span className="font-medium text-[#323130]">{metric.label}</span>
                       </div>
-                      <div className="text-xl font-bold text-gray-900">{metric.value}</div>
+                      <div className="text-xl font-bold text-[#201F1E]">{metric.value}</div>
                     </div>
                   )
                 })}
@@ -238,8 +238,8 @@ const Homepage = () => {
           </div>
 
           {/* Transparency Compliance */}
-          <div className="fluent-card fluent-card-green">
-            <div className="px-6 py-5 border-b border-[#EDEBE9] bg-gradient-to-r from-green-50 to-teal-50">
+          <div className="fluent-card fluent-card-teal">
+            <div className="px-6 py-5 border-b border-[#EDEBE9]">
               <h2 className="ms-text-subtitle">Compliance Status</h2>
             </div>
             <div className="p-6">
@@ -248,8 +248,8 @@ const Homepage = () => {
                   <TrendingUp className="w-8 h-8 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">DILG Certified</h3>
-                  <p className="text-sm text-gray-600">Seal of Good Local Governance 2025</p>
+                  <h3 className="font-bold text-[#201F1E]">DILG Certified</h3>
+                  <p className="text-sm text-[#323130]">Seal of Good Local Governance 2025</p>
                 </div>
               </div>
               <div className="space-y-3">
@@ -260,7 +260,7 @@ const Homepage = () => {
                   { label: 'Citizen Charter', status: 'Updated' }
                 ].map((item, index) => (
                   <div key={index} className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                    <span className="text-sm font-medium text-gray-700">{item.label}</span>
+                    <span className="text-sm font-medium text-[#323130]">{item.label}</span>
                     <div className="ms-pill ms-pill-green">
                       {item.status}
                     </div>
@@ -272,7 +272,7 @@ const Homepage = () => {
 
           {/* Quick Access */}
           <div className="fluent-card fluent-card-teal">
-            <div className="px-6 py-5 border-b border-[#EDEBE9] bg-gradient-to-r from-teal-50 to-blue-50">
+            <div className="px-6 py-5 border-b border-[#EDEBE9]">
               <h2 className="ms-text-subtitle">Quick Access</h2>
             </div>
             <div className="p-6">
@@ -291,8 +291,8 @@ const Homepage = () => {
                             <Icon className="w-4 h-4 text-teal-600" />
                           </div>
                           <div>
-                            <div className="font-semibold text-gray-900 group-hover:text-teal-600 transition-colors">{item.title}</div>
-                            <div className="text-sm text-gray-600">{item.subtitle}</div>
+                            <div className="font-semibold text-[#201F1E] group-hover:text-[#00B7C3] transition-colors">{item.title}</div>
+                            <div className="text-sm text-[#323130]">{item.subtitle}</div>
                           </div>
                         </div>
                         <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-teal-600 transition-colors" />

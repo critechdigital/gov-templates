@@ -7,10 +7,10 @@ const Budget = () => {
 
   const budgetBySection = [
     { name: 'Education', amount: 135000000, percentage: 30, color: '#0078D4' },
-    { name: 'Health', amount: 90000000, percentage: 20, color: '#5B2D8E' },
+    { name: 'Health', amount: 90000000, percentage: 20, color: '#005BB5' },
     { name: 'Infrastructure', amount: 112500000, percentage: 25, color: '#00B7C3' },
-    { name: 'Social Services', amount: 67500000, percentage: 15, color: '#16C60C' },
-    { name: 'General Administration', amount: 45000000, percentage: 10, color: '#FF8C00' },
+    { name: 'Social Services', amount: 67500000, percentage: 15, color: '#004B87' },
+    { name: 'General Administration', amount: 45000000, percentage: 10, color: '#323130' },
   ]
 
   const quarterlyExpenditure = [
@@ -78,12 +78,12 @@ const Budget = () => {
       {/* Header */}
       <div className="mb-8">
         <h1 className="ms-text-title mb-2">Budget Transparency Dashboard</h1>
-        <p className="text-gray-600 text-lg">Real-time budget allocation and expenditure analytics for Municipality of San Rafael, Bulacan</p>
+        <p className="text-[#323130] text-lg">Real-time budget allocation and expenditure analytics for Municipality of San Rafael, Bulacan</p>
       </div>
 
       {/* Command Bar */}
       <div className="ms-command-bar mb-6">
-        <span className="text-sm font-semibold text-gray-700">Budget Actions:</span>
+        <span className="text-sm font-semibold text-[#323130]">Budget Actions:</span>
         <button className="ms-command-button">
           <Filter className="w-4 h-4" />
           Filter Data
@@ -124,51 +124,51 @@ const Budget = () => {
             <div className="ms-pill ms-pill-blue">+12% YoY</div>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-1">₱450M</h3>
-            <p className="font-semibold text-gray-700">Total Annual Budget</p>
-            <p className="text-sm text-gray-600">Fiscal Year {selectedYear}</p>
+            <h3 className="text-3xl font-bold text-[#201F1E] mb-1">₱450M</h3>
+            <p className="font-semibold text-[#201F1E]">Total Annual Budget</p>
+            <p className="text-sm text-[#323130]">Fiscal Year {selectedYear}</p>
           </div>
         </div>
 
-        <div className="fluent-card fluent-card-green p-6">
+        <div className="fluent-card fluent-card-blue p-6">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-green-50 rounded-xl">
-              <Activity className="w-6 h-6 text-green-600" />
+            <div className="p-3 bg-blue-50 rounded-xl">
+              <Activity className="w-6 h-6 text-blue-600" />
             </div>
-            <div className="ms-pill ms-pill-green">On Track</div>
+            <div className="ms-pill ms-pill-blue">On Track</div>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-1">₱415.1M</h3>
-            <p className="font-semibold text-gray-700">Total Expenditure</p>
-            <p className="text-sm text-gray-600">Actual spending to date</p>
+            <h3 className="text-3xl font-bold text-[#201F1E] mb-1">₱415.1M</h3>
+            <p className="font-semibold text-[#201F1E]">Total Expenditure</p>
+            <p className="text-sm text-[#323130]">Actual spending to date</p>
           </div>
         </div>
 
-        <div className="fluent-card fluent-card-orange p-6">
+        <div className="fluent-card fluent-card-blue p-6">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-orange-50 rounded-xl">
-              <TrendingUp className="w-6 h-6 text-orange-600" />
+            <div className="p-3 bg-blue-50 rounded-xl">
+              <TrendingUp className="w-6 h-6 text-[#0078D4]" />
             </div>
-            <div className="ms-pill ms-pill-orange">Excellent</div>
+            <div className="ms-pill ms-pill-blue">Excellent</div>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-1">92.2%</h3>
-            <p className="font-semibold text-gray-700">Utilization Rate</p>
-            <p className="text-sm text-gray-600">Budget efficiency</p>
+            <h3 className="text-3xl font-bold text-[#201F1E] mb-1">92.2%</h3>
+            <p className="font-semibold text-[#201F1E]">Utilization Rate</p>
+            <p className="text-sm text-[#323130]">Budget efficiency</p>
           </div>
         </div>
 
-        <div className="fluent-card fluent-card-purple p-6">
+        <div className="fluent-card fluent-card-teal p-6">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-purple-50 rounded-xl">
-              <PieChartIcon className="w-6 h-6 text-purple-600" />
+            <div className="p-3 bg-[#00B7C3] bg-opacity-10 rounded-xl">
+              <PieChartIcon className="w-6 h-6 text-[#00B7C3]" />
             </div>
-            <div className="ms-pill ms-pill-purple">5 Sectors</div>
+            <div className="ms-pill ms-pill-teal">5 Sectors</div>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-1">₱34.9M</h3>
-            <p className="font-semibold text-gray-700">Remaining Balance</p>
-            <p className="text-sm text-gray-600">Available for allocation</p>
+            <h3 className="text-3xl font-bold text-[#201F1E] mb-1">₱34.9M</h3>
+            <p className="font-semibold text-[#201F1E]">Remaining Balance</p>
+            <p className="text-sm text-[#323130]">Available for allocation</p>
           </div>
         </div>
       </div>
@@ -177,12 +177,12 @@ const Budget = () => {
       <div className="ms-grid-dense" style={{ gridTemplateColumns: '1fr 1fr' }}>
         {/* Pie Chart - Budget by Sector */}
         <div className="fluent-card fluent-card-teal">
-          <div className="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-teal-50 to-blue-50">
+          <div className="px-6 py-4 border-b border-[#EDEBE9]">
             <h3 className="ms-text-subtitle flex items-center">
-              <PieChartIcon className="w-5 h-5 mr-2 text-teal-600" />
+              <PieChartIcon className="w-5 h-5 mr-2 text-[#00B7C3]" />
               Budget Allocation by Sector
             </h3>
-            <p className="text-sm text-gray-600 mt-1">Distribution across government sectors</p>
+            <p className="text-sm text-[#323130] mt-1">Distribution across government sectors</p>
           </div>
           <div className="p-6">
             <div className="h-80">
@@ -228,13 +228,13 @@ const Budget = () => {
         </div>
 
         {/* Bar Chart - Quarterly Expenditure */}
-        <div className="fluent-card fluent-card-purple">
-          <div className="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-purple-50 to-blue-50">
+        <div className="fluent-card fluent-card-blue">
+          <div className="px-6 py-4 border-b border-[#EDEBE9]">
             <h3 className="ms-text-subtitle flex items-center">
-              <BarChart3 className="w-5 h-5 mr-2 text-purple-600" />
+              <BarChart3 className="w-5 h-5 mr-2 text-[#0078D4]" />
               Quarterly Performance Analysis
             </h3>
-            <p className="text-sm text-gray-600 mt-1">Budget vs actual expenditure tracking</p>
+            <p className="text-sm text-[#323130] mt-1">Budget vs actual expenditure tracking</p>
           </div>
           <div className="p-6">
             <div className="h-80">
@@ -288,12 +288,12 @@ const Budget = () => {
 
       {/* Budget Trend - Full width */}
       <div className="fluent-card fluent-card-blue mt-8 mb-8">
-        <div className="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div className="px-6 py-4 border-b border-[#EDEBE9]">
           <h3 className="ms-text-subtitle flex items-center">
-            <TrendingUp className="w-5 h-5 mr-2 text-blue-600" />
+            <TrendingUp className="w-5 h-5 mr-2 text-[#0078D4]" />
             5-Year Budget Growth Trend Analysis
           </h3>
-          <p className="text-sm text-gray-600 mt-1">Historical budget progression and future projections</p>
+          <p className="text-sm text-[#323130] mt-1">Historical budget progression and future projections</p>
         </div>
         <div className="p-6">
           <div className="h-80">
@@ -399,13 +399,13 @@ const Budget = () => {
         </div>
 
         {/* Downloadable Documents */}
-        <div className="fluent-card fluent-card-green">
-          <div className="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-green-50 to-teal-50">
+        <div className="fluent-card fluent-card-teal">
+          <div className="px-6 py-4 border-b border-[#EDEBE9]">
             <h3 className="ms-text-subtitle flex items-center">
-              <Download className="w-5 h-5 mr-2 text-green-600" />
+              <Download className="w-5 h-5 mr-2 text-[#00B7C3]" />
               Budget Resources
             </h3>
-            <p className="text-sm text-gray-600 mt-1">Official documents and reports</p>
+            <p className="text-sm text-[#323130] mt-1">Official documents and reports</p>
           </div>
           <div className="p-6">
             <div className="space-y-4">
